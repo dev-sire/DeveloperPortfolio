@@ -1,0 +1,46 @@
+{
+    "portfolio": [
+        {
+            "cover": "/Portfolio/TenziesGameImg.JPG",
+            "title": "Tenzies Dice Game",
+            "description": "Built with React - CSS",
+            "url": "https://devsire-tenziesgame.netlify.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/Portfolio/NotesAppImg.JPG",
+            "title": "My Notes App",
+            "description": "React react-mde react-split nanoid",
+            "url": "https://mynotesapp-devsire.netlify.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/Portfolio/MemeGeneratorImg.JPG",
+            "title": "Meme Generator",
+            "description": "React - CSS - ImgFlip API",
+            "url": "https://github.com/dev-sire/MemeGenerator",
+            "isLive": false
+        },
+        {
+            "cover": "/Portfolio/TailwindLandingPageImg.png",
+            "title": "Tailwind Landing Page",
+            "description": "Tailwind CSS - HTML5",
+            "url": "https://github.com/dev-sire/homesmart-landingpage",
+            "isLive": false
+        },
+        {
+            "cover": "/Portfolio/CaraPic.jpg",
+            "title": "E-Commerece Website",
+            "description": "HTML5 - CSS3 - JS",
+            "url": "https://github.com/dev-sire/CaraDesignersSite",
+            "isLive": false
+        },
+        {
+            "cover": "/Portfolio/oopconcept.jpg",
+            "title": "OOP Repository",
+            "description": "OOP Concepts in Modern C++",
+            "url": "https://github.com/dev-sire/OOPManagementSystems",
+            "isLive": false
+        }
+    ]
+}
