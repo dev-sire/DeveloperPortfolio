@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/DeveloperPortfolio" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/DeveloperPortfolio/about" element={<About />} />
           <Route path="/DeveloperPortfolio/contact" element={<Contact />} />
