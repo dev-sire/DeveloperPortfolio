@@ -10,21 +10,21 @@ const Sidebar = () => {
     const [showNav, setShowNav] = useState(false)
     return (
         <div className="nav-bar">
-            <Link className="logo" to="/">
+            <Link className="logo" to="/DeveloperPortfolio">
                 <img src={logoS} alt="Mainlogo" />
                 <img className="sub-logo" src={logoSubtitle} alt="logo subtitle" />
             </Link>
             <nav className={showNav ? "mobile-show" : ""}>
-                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} to="/">
+                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} to="/DeveloperPortfolio">
                     <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="about-link" to="/about">
+                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="about-link" to="/DeveloperPortfolio/about">
                     <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="portfolio-link" to="/portfolio">
+                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="portfolio-link" to="/DeveloperPortfolio/portfolio">
                     <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="contact-link" to="/contact">
+                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="contact-link" to="/DeveloperPortfolio/contact">
                     <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
                 </NavLink>
                 <FontAwesomeIcon icon={faClose} onClick={() => setShowNav(false)} className="close-btn" color="#ffd700" size="3x" />
