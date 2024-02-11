@@ -1,0 +1,26 @@
+.sphere-container{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    margin-right: 0;
+    position: absolute;
+    right: 0;
+    overflow: hidden;
+}
+.yellow{
+    color: #ffd700;
+}
+@media screen and (max-width: 1200px) {
+    .skills-page .text-zone{
+        h1{
+            font-size: 36px;
+        }
+    }
+    .sphere-container{
+        position: initial;
+        overflow: visible;
+        bottom: 0;
+        width: 100%;
+        height: fit-content;
+    }
+}

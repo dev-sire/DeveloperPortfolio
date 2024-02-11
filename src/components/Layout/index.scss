@@ -40,7 +40,8 @@
 
 .container.about-page,
 .container.contact-page,
-.container.portfolio-page {
+.container.portfolio-page,
+.container.skills-page {
     .text-zone {
         position: absolute;
         left: 10%;
@@ -116,7 +117,8 @@
 
         &.about-page,
         &.contact-page,
-        &.portfolio-page{
+        &.portfolio-page,
+        &.skills-page{
             .text-zone{
                 position: initial;
                 transform: none;

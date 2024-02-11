@@ -4,7 +4,7 @@ import "./index.scss"
 import logoS from "../../assets/images/logo-s.png"
 import logoSubtitle from "../../assets/images/DevSire_sublogo.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faClose, faEnvelope, faHome, faSuitcase, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faClose, faEnvelope, faGear, faHome, faSuitcase, faUser } from "@fortawesome/free-solid-svg-icons"
 import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 const Sidebar = () => {
     const [showNav, setShowNav] = useState(false)
@@ -20,6 +20,9 @@ const Sidebar = () => {
                 </NavLink>
                 <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="about-link" to="/DeveloperPortfolio/about">
                     <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+                </NavLink>
+                <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="skills-link" to="/DeveloperPortfolio/skills">
+                    <FontAwesomeIcon icon={faGear} color="#4d4d4e" />
                 </NavLink>
                 <NavLink exact="true" activeclassname="active" onClick={() => setShowNav(false)} className="portfolio-link" to="/DeveloperPortfolio/portfolio">
                     <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
