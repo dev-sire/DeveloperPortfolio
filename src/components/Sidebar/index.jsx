@@ -10,7 +10,7 @@ const Sidebar = () => {
     const [showNav, setShowNav] = useState(false)
     return (
         <div className="nav-bar">
-            <Link className="logo" to="/DeveloperPortfolio">
+            <Link className="logo" to="/">
                 <img src={logoS} alt="Mainlogo" />
                 <img className="sub-logo" src={logoSubtitle} alt="logo subtitle" />
             </Link>
