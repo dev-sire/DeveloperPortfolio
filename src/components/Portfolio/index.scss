@@ -99,6 +99,13 @@
         }
     }
 }
+@media screen and (min-width: 2000px) {
+    .container.portfolio-page{
+        .image-box{
+            max-width: calc(20% - 20px);
+        }
+    }
+}
 @media screen and (max-width: 1200px) {
     .container.portfolio-page{
         width: 100%;
@@ -111,12 +118,11 @@
         .image-container{
             justify-content: center;
             width: 100%;
-            // background-color: #fff;
-            // place-content: center;
         }
         .image-box{
             flex: 1 1 100%;
             max-width: calc(80% - 10px);
+            margin: 10px 0;
             .content{
                 padding: 10px;
             }

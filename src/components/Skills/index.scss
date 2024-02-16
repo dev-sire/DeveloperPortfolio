@@ -6,6 +6,9 @@
     position: absolute;
     right: 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .yellow{
     color: #ffd700;

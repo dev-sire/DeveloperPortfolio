@@ -15,6 +15,13 @@
             "isLive": true
         },
         {
+            "cover": "/DeveloperPortfolio/Portfolio/hoobank2.JPG",
+            "title": "Hoobank Landing Page",
+            "description": "Tailwind CSS - React",
+            "url": "https://devsire-hoobank.netlify.app/",
+            "isLive": true
+        },
+        {
             "cover": "/DeveloperPortfolio/Portfolio/MemeGeneratorImg.JPG",
             "title": "Meme Generator",
             "description": "React - CSS - ImgFlip API",

@@ -3,22 +3,32 @@ import { useEffect } from "react"
 import TagCloud from "TagCloud";
 
 const Sphere = () => {
-    let screen = window.innerWidth;
-    let radius = screen < 1200 ? 150 : 300
+    let screen = window.innerWidth, radius;
+    if(screen < 1200){
+      radius = 150
+    }
+    else if(screen > 1200 && screen < 2000){
+      radius = 300
+    }
+    else{
+      radius = 400
+    }
     useEffect(() => {
           const container = ".tagcloud";
           const texts = [
-            "HTML",
-            "CSS",
+            "HTML5",
+            "CSS3",
             "TailwindCSS",
             "JavaScript",
-            "React",
+            "ReactJS",
             "NodeJS",
-            "routerV8",
             "ES7",
+            "RouterV8",
+            "Figma",
             "Python",
             "C++",
-            "GITHUB",
+            "WxWidgets",
+            "Github",
           ];
           const options = {
             radius: radius,
