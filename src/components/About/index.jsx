@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import AnimatedLetters from "../AnimatedLetters"
 import "./index.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCss3, faGitAlt, faReact } from "@fortawesome/free-brands-svg-icons"
+import { faGitAlt, faReact } from "@fortawesome/free-brands-svg-icons"
 import python_logo from "../../assets/images/python_logo_im.png"
 import cppLogo from "../../assets/images/cpp-logo-img.png"
 import jslogo from "../../assets/images/javascript-logo.png"
+import csslogo from "../../assets/images/css3-logo.png"
 import Loader from "react-loaders"
 const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
@@ -36,6 +37,9 @@ const About = () => {
                     </p>
                 </div>
                 <div className="stage-cube-cont">
+                    <div id="stars"></div>
+                    <div id="stars2"></div>
+                    <div id="stars3"></div>
                     <div className="cubespinner">
                         <div className="face1">
                             <img src={cppLogo} className="logo" alt="logo" />
@@ -47,7 +51,7 @@ const About = () => {
                             <img src={jslogo} className="logo" alt="javascript-logo" />
                         </div>
                         <div className="face4">
-                            <FontAwesomeIcon icon={faCss3} color="#24a4d9" />
+                            <img src={csslogo} className="logo" alt="css-logo" />
                         </div>
                         <div className="face5">
                             <img src={python_logo} className="logo" alt="brandPython logo" />
