@@ -17,11 +17,11 @@
     }
     .image-box{
         position: relative;
-        flex: 1 1 20%;
         height: 350px;
+        width: 280px;
         overflow: hidden;
         border-radius: 10px;
-        max-width: calc(25% - 10px);
+        // max-width: calc(25% - 10px);
         .portfolio-image{
             position: absolute;
             z-index: 2;
@@ -37,14 +37,14 @@
             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
             background: linear-gradient(
                 180deg,
-                rgba(0,0,0,0.2) 0,
+                rgba(0, 0, 0, 0.4) 0,
                 rgba(0,0,0,1)
             );
         bottom: -70px;
         }
         .title{
-            font-size: 24px;
-            font-weight: 500;
+            font-size: 23px;
+            font-weight: 700;
             line-height: 24px;
             margin-bottom: 0;
             margin-top: 0;
@@ -120,8 +120,8 @@
             width: 100%;
         }
         .image-box{
-            flex: 1 1 100%;
-            max-width: calc(80% - 10px);
+            width: 250px;
+            height: 300px;
             margin: 10px 0;
             .content{
                 padding: 10px;

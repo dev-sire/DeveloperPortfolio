@@ -1,51 +1,51 @@
 {
     "portfolio": [
         {
-            "cover": "/DeveloperPortfolio/Portfolio/TenziesGameImg.JPG",
+            "cover": "/DeveloperPortfolio/Portfolio/tenzies-game-cover.png",
             "title": "Tenzies Dice Game",
-            "description": "Built with React - CSS",
+            "description": "React, CSS, Vite.js",
             "url": "https://devsire-tenziesgame.netlify.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/Portfolio/NotesAppImg.JPG",
+            "cover": "/DeveloperPortfolio/Portfolio/notesApp-img-hd.avif",
             "title": "My Notes App",
-            "description": "React react-mde react-split nanoid",
+            "description": "React, CSS, Vite.js, Local Storage",
             "url": "https://mynotesapp-devsire.netlify.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/Portfolio/hoobank2.JPG",
+            "cover": "/DeveloperPortfolio/Portfolio/hoobank2-img-hd.jpg",
             "title": "Hoobank Landing Page",
-            "description": "Tailwind CSS - React",
+            "description": "Tailwind CSS, React, Vite.js",
             "url": "https://devsire-hoobank.netlify.app/",
             "isLive": true
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/MemeGeneratorImg.JPG",
             "title": "Meme Generator",
-            "description": "React - CSS - ImgFlip API",
+            "description": "React, CSS, ImgFlip API",
             "url": "https://github.com/dev-sire/MemeGenerator",
             "isLive": false
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/TailwindLandingPageImg.png",
             "title": "Tailwind Landing Page",
-            "description": "Tailwind CSS - HTML5",
+            "description": "HTML5, Tailwind CSS",
             "url": "https://github.com/dev-sire/homesmart-landingpage",
             "isLive": false
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/CaraPic.jpg",
             "title": "E-Commerece Website",
-            "description": "HTML5 - CSS3 - JS",
+            "description": "HTML5 - CSS3 - JavaScript",
             "url": "https://github.com/dev-sire/CaraDesignersSite",
             "isLive": false
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/oopconcept.jpg",
-            "title": "OOP Repository",
-            "description": "OOP Concepts in Modern C++",
+            "title": "OOP in C++",
+            "description": "Management Systems using OOP",
             "url": "https://github.com/dev-sire/OOPManagementSystems",
             "isLive": false
         }
