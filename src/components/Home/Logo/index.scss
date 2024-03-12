@@ -9,6 +9,8 @@
     bottom: 0;
     left: auto;
     opacity: 1;
+    animation: rotateIn 2.5s;
+    animation-fill-mode: forwards;
     svg{
         width: 100%;
         height: auto;
