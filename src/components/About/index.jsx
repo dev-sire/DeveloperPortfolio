@@ -4,7 +4,7 @@ import "./index.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGitAlt, faReact } from "@fortawesome/free-brands-svg-icons"
 import python_logo from "../../assets/images/python_logo_im.png"
-import cppLogo from "../../assets/images/cpp-logo-img.png"
+import javalogo from "../../assets/images/java2.png"
 import jslogo from "../../assets/images/javascript-logo.png"
 import csslogo from "../../assets/images/css3-logo.png"
 import Loader from "react-loaders"
@@ -27,13 +27,13 @@ const About = () => {
                         />
                     </h1>
                     <p>
-                    I'm a MERN Stack developer and React expert with a passion for crafting intuitive and visually stunning user experiences. Don't let the code fool you, I also leverage in the worlds of C++ and Python, offering intermediate-level proficiency to enhance my problem-solving toolkit.
+                    I'm a MERN Stack developer and <span className="yellow">React expert</span> with a passion for crafting intuitive and visually stunning user experiences. Don't let the code fool you, I also leverage in the worlds of <span className="yellow">Java and Python</span>, offering intermediate-level proficiency to enhance my problem-solving toolkit.
                     </p>
                     <p>
                     I build robust and scalable backends using the MERN stack, while simultaneously designing interactive and user-friendly frontends with React. My code is not just functional, it's elegant, maintainable, and built with user experience in mind.
                     </p>
                     <p>
-                    Beyond the technical skills, I value clear communication and collaboration. I work closely with stakeholders to understand their needs and deliver solutions that exceed expectations. Whether it's a complex web application or a simple design tweak, I approach each project with the same dedication and enthusiasm.
+                    Beyond the technical skills, I value clear <span className="yellow">communication and collaboration</span>. I work closely with stakeholders to understand their needs and deliver solutions that exceed expectations. Whether it's a complex web application or a simple design tweak, I approach each project with the same dedication and enthusiasm.
                     </p>
                 </div>
                 <div className="stage-cube-cont">
@@ -42,7 +42,7 @@ const About = () => {
                     <div id="stars3"></div>
                     <div className="cubespinner">
                         <div className="face1">
-                            <img src={cppLogo} className="logo" alt="logo" />
+                            <img src={javalogo} className="logo" alt="logo" />
                         </div>
                         <div className="face2">
                             <FontAwesomeIcon icon={faReact} color="#5ed4f4" />

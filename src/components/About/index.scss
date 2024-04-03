@@ -68,13 +68,13 @@
         position: absolute;
         width: 200px;
         height: 200px;
-        border: 1px solid lightblue;
-        background: rgba(255,255,255,0.4);
+        border: 1px solid #ffd700;
+        background: rgba(100,100,100,0.6);
         font-size: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 0 20px 0 lightblue;
+        box-shadow: 0 0 10px 0 #ffd700;
     }
     .face1{
         transform: translateZ(100px);

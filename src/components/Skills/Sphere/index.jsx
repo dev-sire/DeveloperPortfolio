@@ -22,12 +22,12 @@ const Sphere = () => {
             "JavaScript",
             "ReactJS",
             "NodeJS",
-            "ES7",
+            "JDBC",
             "RouterV8",
-            "Figma",
+            "SQlite",
             "Python",
-            "C++",
-            "WxWidgets",
+            "Java",
+            "Jswing",
             "Github",
           ];
           const options = {

@@ -43,10 +43,10 @@
             "isLive": false
         },
         {
-            "cover": "/DeveloperPortfolio/Portfolio/oopconcept.jpg",
-            "title": "OOP in C++",
-            "description": "Management Systems using OOP",
-            "url": "https://github.com/dev-sire/OOPManagementSystems",
+            "cover": "/DeveloperPortfolio/Portfolio/java-repo.jpg",
+            "title": "Java Intermediate",
+            "description": "DSA, OOP, GUI, JCBC in SQLite",
+            "url": "https://github.com/dev-sire/Java-Intermediate",
             "isLive": false
         }
     ]
