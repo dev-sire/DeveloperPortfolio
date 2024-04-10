@@ -15,9 +15,9 @@
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/Portfolio/hoobank2-img-hd.jpg",
-            "title": "Hoobank Landing Page",
-            "description": "Tailwind CSS, React, Vite.js",
+            "cover": "/DeveloperPortfolio/Portfolio/landingpage2.png",
+            "title": "Hoobank App",
+            "description": "Landing Page: Tailwind CSS, React, Vite.js",
             "url": "https://devsire-hoobank.netlify.app/",
             "isLive": true
         },
@@ -30,23 +30,23 @@
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/TailwindLandingPageImg.png",
-            "title": "Tailwind Landing Page",
-            "description": "HTML5, Tailwind CSS",
+            "title": "Homesmart Products",
+            "description": "Landing page: HTML5, Tailwind CSS",
             "url": "https://github.com/dev-sire/homesmart-landingpage",
             "isLive": false
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/CaraPic.jpg",
-            "title": "E-Commerece Website",
-            "description": "HTML5 - CSS3 - JavaScript",
+            "title": "Cara Designer Outfits",
+            "description": "E-Commerce Website: HTML5, CSS3, JavaScript",
             "url": "https://github.com/dev-sire/CaraDesignersSite",
             "isLive": false
         },
         {
-            "cover": "/DeveloperPortfolio/Portfolio/java-repo.jpg",
-            "title": "Java Intermediate",
-            "description": "DSA, OOP, GUI, JCBC in SQLite",
-            "url": "https://github.com/dev-sire/Java-Intermediate",
+            "cover": "/DeveloperPortfolio/Portfolio/GUI.jpg",
+            "title": "Java GUI",
+            "description": "GUI Using JSwing",
+            "url": "https://github.com/dev-sire/Java-GUI",
             "isLive": false
         }
     ]

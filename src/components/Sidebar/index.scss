@@ -131,15 +131,16 @@
             display: none;
         }
         nav{
-            width: 100%;
+            width: 50%;
             height: 100%;
             background: #181818;
             top: 0;
-            left: 0;
+            right: 0;
             position: fixed;
             z-index: 2;
             margin: 0;
             a{
+                color: #646464;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -154,7 +155,10 @@
                 opacity: 1 !important;
             }
             &.mobile-show{
-                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
         }
         .hamburger-icon,
