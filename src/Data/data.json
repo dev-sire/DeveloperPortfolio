@@ -1,6 +1,20 @@
 {
     "portfolio": [
         {
+            "cover": "/DeveloperPortfolio/Portfolio/creativeMinds.JPG",
+            "title": "Creative Minds",
+            "description": "Next.js, Firebase",
+            "url": "https://creativeminds-devsire.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/Portfolio/Vanslife.JPG",
+            "title": "VansLife App",
+            "description": "React Router v6, Mirage.js",
+            "url": "https://vanslife-react-router.netlify.app/",
+            "isLive": true
+        },
+        {
             "cover": "/DeveloperPortfolio/Portfolio/tenzies-game-cover.png",
             "title": "Tenzies Dice Game",
             "description": "React, CSS, Vite.js",
@@ -12,7 +26,7 @@
             "title": "My Notes App",
             "description": "React, CSS, Vite.js, Local Storage",
             "url": "https://mynotesapp-devsire.netlify.app/",
-            "isLive": true
+            "isLive": false
         },
         {
             "cover": "/DeveloperPortfolio/Portfolio/landingpage2.png",
