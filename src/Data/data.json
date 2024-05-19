@@ -1,6 +1,13 @@
 {
     "portfolio": [
         {
+            "cover": "/DeveloperPortfolio/Portfolio/visagePic.png",
+            "title": "Visage Share",
+            "description": "React Router, Appwrite, TailwindCSS",
+            "url": "https://visageshare.vercel.app/",
+            "isLive": true
+        },
+        {
             "cover": "/DeveloperPortfolio/Portfolio/creativeMinds.JPG",
             "title": "Creative Minds",
             "description": "Next.js, Firebase",
@@ -29,10 +36,10 @@
             "isLive": false
         },
         {
-            "cover": "/DeveloperPortfolio/Portfolio/landingpage2.png",
-            "title": "Hoobank App",
-            "description": "Landing Page: Tailwind CSS, React, Vite.js",
-            "url": "https://devsire-hoobank.netlify.app/",
+            "cover": "/DeveloperPortfolio/Portfolio/brainwavePic.png",
+            "title": "Brainwave Page",
+            "description": "Landing Page: Tailwind CSS, React Router",
+            "url": "https://brainwave-devsire.netlify.app/",
             "isLive": true
         },
         {
