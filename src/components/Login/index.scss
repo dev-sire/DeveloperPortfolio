@@ -1,0 +1,29 @@
+.flat-button{
+    color: #ffd700;
+    background: transparent;
+    font-size: 13px;
+    font-family: sans-serif;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid #ffd700;
+    cursor: pointer;
+    margin-top: 25px;
+    float: left;
+    white-space: nowrap;
+    animation: FadeIn 1s 1.8s backwards;
+
+    &:hover{
+        background-color: #ffd700;
+        color: #333;
+    }
+}
+.heading-1{
+    font-size: 35px;
+    color: #ffffff;
+}
+.heading-2{
+    font-size: 15px;
+    color: #ffd700;
+}

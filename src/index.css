@@ -14,7 +14,7 @@ html {
   }
   
   .dashboard {
-    margin-top: 200px;
+    margin-top: 150px;
     margin-left: 200px;
   }
   
@@ -27,4 +27,22 @@ html {
     body {
       overflow: visible;
     }
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ffd700;
   }

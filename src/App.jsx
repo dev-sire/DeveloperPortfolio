@@ -8,6 +8,7 @@ import About from './components/About'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Portfolio from './components/Portfolio'
+import Dashboard from './components/Dashboard'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/DeveloperPortfolio/skills" element={<Skills />} />
           <Route path="/DeveloperPortfolio/contact" element={<Contact />} />
           <Route path="/DeveloperPortfolio/portfolio" element={<Portfolio/>} />
+          <Route path="/DeveloperPortfolio/dashboard" element={<Dashboard/>} />
         </Route>
       </Routes>
     </>
