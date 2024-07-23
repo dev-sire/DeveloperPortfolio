@@ -27,13 +27,13 @@ const About = () => {
                         />
                     </h1>
                     <p>
-                    I'm a MERN Stack developer and <span className="yellow">React expert</span> with a passion for crafting intuitive and visually stunning user experiences. Don't let the code fool you, I also leverage in the worlds of <span className="yellow">Java and Python</span>, offering intermediate-level proficiency to enhance my problem-solving toolkit.
+                        I am a passionate MERN Stack developer with a keen interest in crafting robust and scalable web applications. With a strong foundation in <span className="yellow">React, Node.js, Express, and MongoDB</span>, I excel at building dynamic and interactive user experiences. I am proficient in developing both frontend and backend solutions, enabling me to deliver comprehensive and efficient web applications.
                     </p>
                     <p>
-                    I build robust and scalable backends using the MERN stack, while simultaneously designing interactive and user-friendly frontends with React. My code is not just functional, it's elegant, maintainable, and built with user experience in mind.
+                    Alongside my web development journey, I have honed my problem-solving skills through competitive programming on platforms like <a href="https://leetcode.com/u/AmanShahid009/" className="link">LeetCode</a>. This experience has equipped me with a strong algorithmic foundation, enabling me to write optimized and efficient code.
                     </p>
                     <p>
-                    Beyond the technical skills, I value clear <span className="yellow">communication and collaboration</span>. I work closely with stakeholders to understand their needs and deliver solutions that exceed expectations. Whether it's a complex web application or a simple design tweak, I approach each project with the same dedication and enthusiasm.
+                    I am deeply interested in <span className="yellow">web security </span>and understand the importance of protecting user data. I have a strong foundation in secure coding practices and am always eager to learn about the latest vulnerabilities and mitigation techniques. I strive to build applications that are resilient against cyber threats and prioritize user privacy.
                     </p>
                 </div>
                 <div className="stage-cube-cont">

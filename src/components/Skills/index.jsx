@@ -23,11 +23,11 @@ const Skills = () => {
                     />
                 </h1>
                 <p>
-                This page delves into the world of code that fuels my passion. Here, you'll discover my proficiency as a MERN Stack developer, where I wield the power of <span className="yellow">MongoDB, Express, React, and Node.js</span> to build robust and scalable web applications. But my journey doesn't stop there. As an intermediate <span className="yellow">Java and Python developer</span>, I'm constantly expanding my horizons, leveraging these languages for performance-critical tasks and efficient automation.
+                As a full-stack developer, I have successfully built and deployed multiple web applications using the <span className="yellow">MERN stack</span>. My experience encompasses both frontend and backend development, allowing me to create robust and efficient solutions. I am particularly proud of my work on <span className="yellow">Visage Share</span>, a real-time social media app, where I handled the entire development lifecycle, from conception to deployment. I am committed to continuous improvement and actively maintain and update my projects to incorporate the latest technologies and best practices.
                </p>
-                <p>
-                Furthermore, the desire to learn never ceases to simmer. I'm an active learner, always on the lookout for new technologies and frameworks to integrate into my skillset. This continuous pursuit of knowledge ensures I can tackle your projects with both <span className="yellow">expertise and fresh perspectives.</span>
-                </p>
+               <p>
+               I am committed to staying up-to-date with the rapidly evolving tech landscape. I actively pursue knowledge in <span className="yellow">web development</span>, exploring new frameworks and libraries. Additionally, I consistently challenge myself with <span className="yellow">competitive programming</span> to sharpen my problem-solving skills. With a keen interest in <span className="yellow">cybersecurity</span>, I stay informed about the latest threats and countermeasures to build robust and secure applications.
+               </p>
             </div>
             <div className="sphere-container">
                 <Sphere />
