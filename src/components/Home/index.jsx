@@ -30,7 +30,7 @@ const Home = () => {
                         <AnimatedLetters letterclass={letterClass} strArray={jobArray} idx={26} />
                     </h1>
                     <h2>FullStack Developer / Competitive Programmer / Web Security Analyst</h2>
-                    <Link to="/contact" className='flat-button'>CONTACT ME</Link>
+                    <Link to="/DeveloperPortfolio/contact" className='flat-button'>CONTACT ME</Link>
                 </div>
                 <Logo />
             </div>
