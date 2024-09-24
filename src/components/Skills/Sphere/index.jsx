@@ -31,9 +31,9 @@ const Sphere = () => {
             "Github",
           ];
           const options = {
-            radius: radius,
+            radius,
             maxSpeed: "fast",
-            initSpeed: "fast",
+            initSpeed: "normal",
           };
           TagCloud(container, texts, options);
       }, []);
