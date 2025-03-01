@@ -4,9 +4,9 @@ import "./index.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGitAlt, faReact } from "@fortawesome/free-brands-svg-icons"
 import python_logo from "../../assets/images/python_logo_im.png"
-import javalogo from "../../assets/images/java2.png"
-import jslogo from "../../assets/images/javascript-logo.png"
-import csslogo from "../../assets/images/css3-logo.png"
+import mongodblogo from "../../assets/images/mongodb-logo.svg"
+import tslogo from "../../assets/images/typescript-logo.png"
+import appwritelogo from "../../assets/images/appwrite-logo.png"
 import Loader from "react-loaders"
 const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
@@ -42,16 +42,16 @@ const About = () => {
                     <div id="stars3"></div>
                     <div className="cubespinner">
                         <div className="face1">
-                            <img src={javalogo} className="logo" alt="logo" />
+                            <img src={mongodblogo} className="logo" alt="logo" />
                         </div>
                         <div className="face2">
                             <FontAwesomeIcon icon={faReact} color="#5ed4f4" />
                         </div>
                         <div className="face3">
-                            <img src={jslogo} className="logo" alt="javascript-logo" />
+                            <img src={tslogo} className="logo" alt="typescript-logo" />
                         </div>
                         <div className="face4">
-                            <img src={csslogo} className="logo" alt="css-logo" />
+                            <img src={appwritelogo} className="logo" alt="css-logo" />
                         </div>
                         <div className="face5">
                             <img src={python_logo} className="logo" alt="brandPython logo" />
