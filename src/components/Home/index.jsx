@@ -29,7 +29,7 @@ const Home = () => {
                         <br />
                         <AnimatedLetters letterclass={letterClass} strArray={jobArray} idx={26} />
                     </h1>
-                    <h2>FullStack Developer / Competitive Programmer / Web Security Analyst</h2>
+                    <h2>Full-Stack Development / Networking / Cyber Security</h2>
                     <Link to="/DeveloperPortfolio/contact" className='flat-button'>CONTACT ME</Link>
                 </div>
                 <Logo />

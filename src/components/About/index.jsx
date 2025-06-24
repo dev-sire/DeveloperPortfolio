@@ -27,13 +27,13 @@ const About = () => {
                         />
                     </h1>
                     <p>
-                        I am a passionate MERN Stack developer with a keen interest in crafting robust and scalable web applications. With a strong foundation in <span className="yellow">React, Node.js, Express, and MongoDB</span>, I excel at building dynamic and interactive user experiences. I am proficient in developing both frontend and backend solutions, enabling me to deliver comprehensive and efficient web applications.
+                        Driven by a passion for innovation, I am a highly motivated professional constantly seeking opportunities to expand my knowledge and make a significant impact in the tech industry. My ambition fuels my pursuit of challenging projects and my dedication to mastering new technologies, always with an eye towards creating robust and scalable solutions.
                     </p>
                     <p>
-                    Alongside my web development journey, I have honed my problem-solving skills through competitive programming on platforms like <a href="https://leetcode.com/u/AmanShahid009/" className="link">LeetCode</a>. This experience has equipped me with a strong algorithmic foundation, enabling me to write optimized and efficient code.
+                        I approach every challenge with a confident and proactive mindset, leveraging my strong problem-solving abilities and adaptability to navigate complex technical landscapes. My experience has equipped me with the skills to not only identify issues but also to effectively implement solutions, ensuring successful project delivery and optimal system performance.
                     </p>
                     <p>
-                    I am deeply interested in <span className="yellow">web security </span>and understand the importance of protecting user data. I have a strong foundation in secure coding practices and am always eager to learn about the latest vulnerabilities and mitigation techniques. I strive to build applications that are resilient against cyber threats and prioritize user privacy.
+                        My enthusiasm for technology is matched only by my commitment to continuous learning and growth. I am captivated by the ever-evolving world of <span className="yellow">web development, cybersecurity, and networking</span>, seeing each new development as an exciting opportunity to learn and apply cutting-edge practices. I thrive in dynamic environments where I can contribute my skills and collaborate on impactful projects.
                     </p>
                 </div>
                 <div className="stage-cube-cont">
