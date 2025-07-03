@@ -1,28 +1,56 @@
-.text-sphere{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.skills-chart{
+    position: absolute;
+    width: 80%;
+    right: -15%;
+    left: auto;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
 }
-.tagcloud {
-    display: inline-block;
+#myCanvasContainer{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#myCanvas {
+    position: absolute;
     top: 0;
     left: 0;
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.0625em;
-    font-size: 16px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: auto;
+    height: 100%;
 }
-.tagcloud--item {
-    color: #fff;
-    text-transform: uppercase;
-}
-.tagcloud--item:hover {
-    color: #ffd700;
-}
-@media screen and (max-width: 1200px) {
-    .tagcloud{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+@media screen and (max-width: 960px) {
+    .skills-chart{
+        position: relative;
+        left: 0;
+        width: 80%;
+        top: 0;
+        -webkit-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+        transform: translateY(0%);
+        clear: both;
+        margin: auto;
+        overflow: hidden;
+    }
+    #myCanvasContainer {
+        position: relative;
+        margin: 0 10% !important;
+        top: 0 !important;
+        left: 0 !important;
+        display: block;
+        clear: both;
+        width: 80%;
+        height: auto;
+    }
+    #myCanvas {
+        position: relative;
+        width: 100%;
+        margin: 0;
     }
 }
