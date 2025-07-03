@@ -11,32 +11,6 @@ const Skills = () => {
             return setLetterClass("text-animate-hover")
         }, 4000)
     }, [])
-    const tagCanvasOptions = {
-        textColour: '#fff',
-        outlineColour: '#fff',
-        depth: 0.9,
-        maxSpeed: 0.08,
-    };
-
-  const myTags = [
-        { href: "http://en.wikipedia.org/wiki/HTML", text: "HTML" },
-        { href: "https://www.mongodb.com", text: "MongoDB" },
-        { href: "https://expressjs.com/", text: "ExpressJS" },
-        { href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", text: "JavaScript" },
-        { href: "https://www.typescriptlang.org/", text: "TypeScript" },
-        { href: "https://react.dev/", text: "ReactJS" },
-        { href: "https://nextjs.org/", text: "NextJS" },
-        { href: "https://nodejs.org/en", text: "NodeJS" },
-        { href: "https://flask.palletsprojects.com/en/stable/#", text: "Flask" },
-        { href: "https://www.djangoproject.com/", text: "Django" },
-        { href: "https://www.python.org/", text: "Python" },
-        { href: "https://developer.mozilla.org/en-US/docs/Web/CSS", text: "CSS" },
-        { href: "https://sass-lang.com/", text: "SCSS" },
-        { href: "https://tailwindcss.com/", text: "TailwindCSS" },
-        { href: "https://www.mysql.com/", text: "MySQL" },
-        { href: "https://www.cisco.com/", text: "Networking" },
-        { href: "https://supabase.com/", text: "Supabase" },
-    ];
   return (
     <>
         <div className="container skills-page">
@@ -55,7 +29,7 @@ const Skills = () => {
                     My dedication is underscored by my CCNP certification, showcasing advanced proficiency in enterprise networking. Connect with me on <span className="yellow"><a target="_blank" href="https://www.linkedin.com/in/aman-shahid-32708a2b7"></a>LinkedIn</span> to learn more!
                </p>
             </div>
-            <TagCloud options={tagCanvasOptions} tags={myTags} />
+            <TagCloud />
         </div>
         <Loader type="pacman" />
     </>
