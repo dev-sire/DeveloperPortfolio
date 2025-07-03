@@ -41,10 +41,10 @@ const TagCloud = () => {
                     tagsRef.current.id,
                     tagCanvasOptions
                 );
-                setErrorState(null); // Clear error on successful start
+                setErrorState(null);
             } catch (e) {
                 console.error('TagCanvas error:', e);
-                setErrorState(e); // <--- Assigning the Error object to state
+                setErrorState(e.message || e.toString());
                 if (canvasRef.current) {
                     canvasRef.current.parentElement.style.display = 'none';
                 }
@@ -53,7 +53,12 @@ const TagCloud = () => {
             console.warn('TagCanvas not found. Make sure tagcanvas.min.js is loaded.');
             setErrorState(new Error('TagCanvas script not loaded.')); // Example
         }
-        // ... cleanup
+
+        // return () => {
+        //     if (canvasRef.current && window.TagCanvas) {
+        //         window.TagCanvas.Stop(canvasRef.current.id);
+        //     }
+        // };
     }, [tagCanvasOptions, myTags]);
 
     return (
