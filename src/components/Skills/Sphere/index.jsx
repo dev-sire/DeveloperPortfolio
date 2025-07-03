@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 const TagCloud = () => {
     const canvasRef = useRef(null);
     const tagsRef = useRef(null);
-    const [errorState, setErrorState] = useState(null); // State to hold potential error
-
+    const [errorState, setErrorState] = useState(null);
     const tagCanvasOptions = {
         textColour: '#fff',
         outlineColour: '#fff',
@@ -51,14 +50,8 @@ const TagCloud = () => {
             }
         } else {
             console.warn('TagCanvas not found. Make sure tagcanvas.min.js is loaded.');
-            setErrorState(new Error('TagCanvas script not loaded.')); // Example
+            setErrorState(new Error('TagCanvas script not loaded.'));
         }
-
-        // return () => {
-        //     if (canvasRef.current && window.TagCanvas) {
-        //         window.TagCanvas.Stop(canvasRef.current.id);
-        //     }
-        // };
     }, [tagCanvasOptions, myTags]);
 
     return (
