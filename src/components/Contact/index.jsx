@@ -13,15 +13,34 @@ const Contact = () => {
             return setLetterClass("text-animate-hover")
         }, 3000)
     }, [])
-    const sendEmail = (e) =>{
-        e.preventDefault()
-        emailjs.sendForm('default_service','template_7gibp1o',refForm.current,'wJkoiUCgHxMBbH2Z4').then(()=>{
-            alert("Message sent successfully!")
-            window.location.reload(false)
-        }),()=>{
-            alert("Failed to send Message, Please try again")
+ const emailJsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    useEffect(() => {
+        if (!emailJsPublicKey) {
+            console.error('EmailJS public key is missing! Check your .env file (VITE_EMAILJS_PUBLIC_KEY).');
+        } else {
+            emailjs.init(emailJsPublicKey);
         }
-    }
+    }, [emailJsPublicKey]);
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        if (!emailJsPublicKey) {
+            alert("Email service not configured. Please contact the administrator.");
+            console.error('EmailJS public key is missing.');
+            return;
+        }
+        emailjs.sendForm('default_service', 'template_7gibp1o', refForm.current, emailJsPublicKey)
+            .then(
+                () => {
+                    alert("Message sent successfully!");
+                    window.location.reload(false);
+                },
+                (error) => {
+                    alert("Failed to send Message, Please try again: " + error.text);
+                    console.error("Email send error:", error);
+                }
+            );
+    };
     return(
         <>
             <div className="container contact-page">
