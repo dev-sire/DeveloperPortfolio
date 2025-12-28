@@ -41,7 +41,7 @@ const Home = () => {
                     </h1>
                     <h2>Full-Stack Development / Networking / Cyber Security</h2>
                     <button onClick={handleDownloadResume} className='flat-button'>RESUME</button>
-                    <button onClick={handleDownloadResume} className='flat-button'>RESUME</button>
+                    {/* <button onClick={handleDownloadResume} className='flat-button'>RESUME</button> */}
                 </div>
                 <Logo />
             </div>
