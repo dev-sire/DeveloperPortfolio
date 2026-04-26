@@ -4,26 +4,46 @@ import AnimatedLetters from '../AnimatedLetters'
 import Logo from './Logo'
 import './index.scss'
 import Loader from 'react-loaders'
+import BatGame from '../BatGame'
 
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
+    const [gameActive, setGameActive] = useState(false)
+
     const nameArray = ['A', 'm', 'a', 'n', ' ', 'S', 'h', 'a', 'h', 'i', 'd']
-    const jobArray = ['M', 'E', 'R', 'N',' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r']
-    // const jobArray = ['S', 'e', 'c', 'u', 'r', 'i', 't', 'y', ' ', 'P', 'r', 'a', 'c', 't', 'i', 't', 'i', 'o', 'n', 'e', 'r']
+    const jobArray = ['M', 'E', 'R', 'N', ' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r']
+
     useEffect(() => {
-        setTimeout(() => {
-            return setLetterClass("text-animate-hover")
-        }, 5000)
+        setTimeout(() => setLetterClass("text-animate-hover"), 5000)
+    }, [])
+
+    // Ctrl+Space to launch, ESC to close
+    useEffect(() => {
+        const isMobile = window.innerWidth <= 1200 || 'ontouchstart' in window
+        if (isMobile) return
+
+        const onKeyDown = (e) => {
+            if (e.ctrlKey && e.code === 'Space') {
+                e.preventDefault()
+                setGameActive(true)
+            }
+            if (e.key === 'Escape') {
+                setGameActive(false)
+            }
+        }
+        window.addEventListener('keydown', onKeyDown)
+        return () => window.removeEventListener('keydown', onKeyDown)
     }, [])
 
     const handleDownloadResume = () => {
-        const link = document.createElement('a');
-        link.href = '/DeveloperPortfolio/Resume_Aman_Shahid.pdf';
-        link.download = 'Resume_Aman_Shahid.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+        const link = document.createElement('a')
+        link.href = '/DeveloperPortfolio/Resume_Aman_Shahid.pdf'
+        link.download = 'Resume_Aman_Shahid.pdf'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+    }
+
     return (
         <>
             <div className="container home-page">
@@ -40,13 +60,19 @@ const Home = () => {
                         <AnimatedLetters letterclass={letterClass} strArray={jobArray} idx={26} />
                     </h1>
                     <h2>Full-Stack Development / Networking / Cyber Security</h2>
-                    <button onClick={handleDownloadResume} className='flat-button'>RESUME</button>
-                    {/* <button onClick={handleDownloadResume} className='flat-button'>RESUME</button> */}
+                    <div className="home-buttons">
+                        <button onClick={handleDownloadResume} className='flat-button'>RESUME</button>
+                        {/* <span className="game-hint">ctrl + space to play</span> */}
+                    </div>
                 </div>
                 <Logo />
             </div>
+
+            {gameActive && <BatGame onClose={() => setGameActive(false)} />}
+
             <Loader type='pacman' />
         </>
     )
 }
+
 export default Home

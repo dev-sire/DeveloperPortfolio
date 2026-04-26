@@ -1,74 +1,67 @@
 {
     "portfolio": [
         {
-            "cover": "/DeveloperPortfolio/Portfolio/visagePic.png",
+            "cover": "/DeveloperPortfolio/humanoid.png",
+            "title": "Humanoid AI Book",
+            "description": "Docusaurus, Claude Code, RAG",
+            "url": "https://humanoid-ai-book.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/nanotech.png",
+            "title": "NanoTechX",
+            "description": "React Router, Tailwind CSS, EmailJS",
+            "url": "https://nanotechx.org/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/nodestream.png",
+            "title": "NodeStream",
+            "description": "NextJs, Mux, TRPC",
+            "url": "https://nodestream-devsire.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/pingpanda.png",
+            "title": "PingPanda",
+            "description": "Next14, PrismaDB, Honojs",
+            "url": "https://pingpanda-devsire.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/commlinks.png",
+            "title": "CommLinks",
+            "description": "NextJS, Convex, Jotai",
+            "url": "https://commlink-devsire.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/collab.png",
+            "title": "CollabDocs",
+            "description": "Next14, Typescript, Liveblocks",
+            "url": "https://collabdocs-devsire.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/mindforge.png",
+            "title": "MindForge",
+            "description": "Next14, Convex, Clerk",
+            "url": "https://mindforge-seven.vercel.app/",
+            "isLive": true
+        },
+        {
+            "cover": "/DeveloperPortfolio/visageconnect.png",
+            "title": "Visage Connect",
+            "description": "Next14, Convex, Clerk",
+            "url": "https://github.com/dev-sire/Visage-Connect",
+            "isLive": false
+        },
+        {
+            "cover": "/DeveloperPortfolio/visage.png",
             "title": "Visage Share",
-            "description": "React Router, Appwrite, TailwindCSS",
+            "description": "React Router, Appwrite, Tailwind CSS",
             "url": "https://visageshare.vercel.app/",
             "isLive": true
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/creativeMinds.JPG",
-            "title": "Creative Minds",
-            "description": "Next.js, Firebase",
-            "url": "https://creativeminds-devsire.vercel.app/",
-            "isLive": true
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/Vanslife.JPG",
-            "title": "VansLife App",
-            "description": "React Router v6, Mirage.js",
-            "url": "https://vanslife-react-router.netlify.app/",
-            "isLive": true
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/tenzies-game-cover.png",
-            "title": "Tenzies Dice Game",
-            "description": "React, CSS, Vite.js",
-            "url": "https://devsire-tenziesgame.netlify.app/",
-            "isLive": true
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/notesApp-img-hd.avif",
-            "title": "My Notes App",
-            "description": "React, CSS, Vite.js, Local Storage",
-            "url": "https://mynotesapp-devsire.netlify.app/",
-            "isLive": false
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/brainwavePic.png",
-            "title": "Brainwave Page",
-            "description": "Landing Page: Tailwind CSS, React Router",
-            "url": "https://brainwave-devsire.netlify.app/",
-            "isLive": true
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/MemeGeneratorImg.JPG",
-            "title": "Meme Generator",
-            "description": "React, CSS, ImgFlip API",
-            "url": "https://github.com/dev-sire/MemeGenerator",
-            "isLive": false
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/TailwindLandingPageImg.png",
-            "title": "Homesmart Products",
-            "description": "Landing page: HTML5, Tailwind CSS",
-            "url": "https://github.com/dev-sire/homesmart-landingpage",
-            "isLive": false
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/CaraPic.jpg",
-            "title": "Cara Designer Outfits",
-            "description": "E-Commerce Website: HTML5, CSS3, JavaScript",
-            "url": "https://github.com/dev-sire/CaraDesignersSite",
-            "isLive": false
-        },
-        {
-            "cover": "/DeveloperPortfolio/Portfolio/GUI.jpg",
-            "title": "Java GUI",
-            "description": "GUI Using JSwing",
-            "url": "https://github.com/dev-sire/Java-GUI",
-            "isLive": false
         }
     ]
 }

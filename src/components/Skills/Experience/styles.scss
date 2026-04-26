@@ -1,0 +1,326 @@
+@keyframes tl-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ── Section wrapper ───────────────────────────────────────────
+.experience-section {
+    padding: 40px 10% 160px;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    box-sizing: border-box;
+
+    // Matches the h1 style of Skills page exactly
+    h1 {
+        font-size: 50px;
+        font-family: 'Coolvetica';
+        font-weight: 400;
+        color: #ffd700;
+        margin-top: 0;
+        position: relative;
+        margin-bottom: 60px;
+        left: 10px;
+
+        &::before {
+            content: '<h1>';
+            font-family: 'La Belle Aurore';
+            font-size: 18px;
+            position: absolute;
+            margin-top: -10px;
+            left: -10px;
+            opacity: 0.6;
+            line-height: 18px;
+        }
+
+        &::after {
+            content: '<h1 />';
+            font-family: 'La Belle Aurore';
+            font-size: 18px;
+            line-height: 18px;
+            opacity: 0.6;
+            position: absolute;
+            left: -30px;
+            bottom: -20px;
+            margin-left: 20px;
+        }
+    }
+}
+
+// ── Timeline outer wrapper (owns the vertical line) ──────────
+.tl-wrapper {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+// ── Vertical center line — maps to Tailwind gradient line ────
+.tl-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 80px;
+    width: 2px;
+    transform: translateX(-50%);
+    // matches: bg-gradient-to-b from-blue-400/60 to-purple-500/60
+    // but remapped to your gold/navy palette
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(30, 58, 90, 0.4) 5%,
+        #1e3a5a 40%,
+        rgba(255, 215, 0, 0.4) 100%
+    );
+    z-index: 0;
+}
+
+// ── Items container ───────────────────────────────────────────
+.tl-items {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 80px;
+}
+
+// ── Individual row ────────────────────────────────────────────
+.tl-item {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    margin-bottom: 52px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(12px);   // matches fade-in keyframe offset
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+        animation: tl-fade-in 0.5s ease forwards;
+    }
+}
+
+// ── Spacer (equal half width as card) ────────────────────────
+.tl-spacer {
+    flex: 0 0 calc(50% - 44px);
+    width: calc(50% - 44px);
+}
+
+// ── Node column ───────────────────────────────────────────────
+.tl-node-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 88px;   // 44px each side of center line
+    width: 88px;
+    padding-top: 16px;
+    z-index: 2;
+}
+
+.tl-item.left .tl-node-wrap { align-items: flex-end; }
+.tl-item.right .tl-node-wrap { align-items: flex-start; }
+
+// ── Glowing node — maps to the glassmorphism glowing dot ─────
+.tl-node {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    // maps to: border-2 border-white dark:border-neutral-800
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    // maps to: bg-gradient-to-r from-blue-400 to-purple-500 → remapped to gold
+    background: radial-gradient(circle at 40% 40%, #ffe566, #ffd700 60%, #c8a800);
+    // maps to: shadow-[0_0_12px_rgba(59,130,246,0.6)] → gold glow
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15), 0 0 14px rgba(255, 215, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 2;
+
+    // maps to: hover:scale-110
+    &:hover {
+        transform: scale(1.15);
+        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.25), 0 0 20px rgba(255, 215, 0, 0.7);
+    }
+}
+
+// Node dims until row is in view, then glows in
+.tl-item .tl-node {
+    background: #0d1b2a;
+    box-shadow: none;
+    border-color: #ffd700;
+}
+
+.tl-item.visible .tl-node {
+    background: radial-gradient(circle at 40% 40%, #ffe566, #ffd700 60%, #c8a800);
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15), 0 0 14px rgba(255, 215, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.tl-year {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #ffd700;
+    opacity: 0.75;
+    white-space: nowrap;
+    text-align: center;
+}
+
+// ── Card — maps to glassmorphism card ─────────────────────────
+.tl-card {
+    flex: 0 0 calc(50% - 44px);
+    width: calc(50% - 44px);
+    box-sizing: border-box;
+    padding: 18px 22px;
+    position: relative;
+
+    // maps to: backdrop-blur-xl bg-white/70 dark:bg-neutral-900/70
+    background: rgba(15, 35, 54, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    // maps to: border border-gray-200/50 dark:border-white/10
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 2px solid rgba(255, 215, 0, 0.6);
+    border-radius: 10px;
+
+    // maps to: shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+    // maps to: hover:shadow-[0_10px_36px_rgba(0,0,0,0.15)] transition-all duration-300
+    transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        background: rgba(18, 41, 68, 0.88);
+        border-left-color: #ffd700;
+        box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 215, 0, 0.1);
+    }
+
+    // Connector nub toward the node
+    &::after {
+        content: '';
+        position: absolute;
+        top: 22px;
+        width: 14px;
+        height: 2px;
+        background: rgba(30, 58, 90, 0.8);
+    }
+
+    .tl-role {
+        // maps to: text-xs font-semibold uppercase tracking-wide text-blue-600 → gold
+        font-size: 13px;
+        font-weight: 700;
+        color: #ffd700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin: 0 0 3px;
+        opacity: 0.9;
+    }
+
+    .tl-company {
+        font-size: 12px;
+        font-family: 'Share Tech Mono', monospace;
+        color: #8eabc8;
+        margin: 0 0 10px;
+    }
+
+    // maps to: text-lg font-semibold text-gray-900 dark:text-white → used for desc
+    .tl-desc {
+        font-size: 13px;
+        color: #c8dff0;
+        line-height: 1.65;
+        margin: 0 0 12px;
+        font-weight: 400;
+    }
+}
+
+.tl-item.left .tl-card::after {
+    right: -14px;
+    left: auto;
+}
+
+.tl-item.right .tl-card::after {
+    left: -14px;
+    right: auto;
+}
+
+// ── Tags ──────────────────────────────────────────────────────
+.tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.tl-tag {
+    font-size: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    color: #4a8ab5;
+    background: rgba(10, 30, 48, 0.7);
+    border: 1px solid rgba(30, 58, 90, 0.8);
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.4px;
+    transition: color 0.2s, border-color 0.2s;
+
+    &:hover {
+        color: #ffd700;
+        border-color: rgba(255, 215, 0, 0.5);
+    }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media screen and (max-width: 1200px) {
+    .experience-section h1 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .tl-line {
+        left: 20px;
+    }
+
+    .tl-items {
+        padding-left: 48px;
+    }
+
+    .tl-item {
+        position: relative;
+        flex-direction: column !important;
+        gap: 10px;
+
+        .tl-card {
+            flex: 1 1 100%;
+            width: 100%;
+            &::after { display: none; }
+        }
+    }
+
+    .tl-node-wrap {
+        position: absolute;
+        left: -40px;
+        top: 0;
+        padding-top: 16px;
+        width: 32px;
+        flex: 0 0 32px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .tl-year--left,
+    .tl-year--right {
+        order: 0;
+        font-size: 9px;
+        text-align: center;
+        white-space: normal;
+        word-break: break-word;
+        width: 36px;
+    }
+
+    .tl-spacer { display: none; }
+}

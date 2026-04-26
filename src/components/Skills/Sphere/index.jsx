@@ -8,8 +8,8 @@ const TagCloud = () => {
     const tagCanvasOptions = {
         textColour: '#fff',
         outlineColour: '#fff',
-        depth: 0.9,
-        maxSpeed: 0.08,
+        depth: 1,
+        maxSpeed: 0.1,
     };
 
     const myTags = [
@@ -61,7 +61,7 @@ const TagCloud = () => {
             )}
             <div className="skills-chart">
                 <div id="myCanvasContainer">
-                    <canvas ref={canvasRef} width="500" height="500" id="myCanvas">
+                    <canvas ref={canvasRef} width="700" height="700" id="myCanvas">
                         
                     </canvas>
                 </div>

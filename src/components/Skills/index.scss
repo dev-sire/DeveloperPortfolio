@@ -1,9 +1,60 @@
-.yellow{
+.yellow {
     color: #ffd700;
 }
+
+.skills-page {
+    position: relative !important;
+    height: 100% !important;
+    width: 100%;
+    min-height: 100vh !important;
+    top: 0 !important;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .skills-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 600px;
+        width: 100%;
+        position: relative;
+        .text-zone {
+            // Reset the absolute positioning from layout.scss
+            position: relative !important;
+            left: 10% !important;
+            top: auto !important;
+            transform: none !important;
+            width: 35%;
+            display: block;
+            max-height: unset;
+        }
+    }
+}
+
 @media screen and (max-width: 1200px) {
-    .skills-page .text-zone{
-        h1{
+    .skills-page {
+        padding-top: 60px;
+        overflow-y: scroll;
+
+        .skills-top {
+            flex-direction: column;
+            min-height: auto;
+
+            .text-zone {
+                position: initial !important;
+                left: auto !important;
+                width: 100% !important;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+        }
+
+        h1 {
             font-size: 36px;
         }
     }

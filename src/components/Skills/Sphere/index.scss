@@ -8,6 +8,7 @@
     bottom: 0;
     margin: auto;
     z-index: 2;
+    overflow: hidden;
 }
 #myCanvasContainer{
     position: relative;
@@ -23,6 +24,7 @@
     margin: auto;
     width: auto;
     height: 100%;
+    // background-color: green;
 }
 
 @media screen and (max-width: 1200px) {
@@ -36,7 +38,6 @@
         transform: translateY(0%);
         clear: both;
         margin: auto;
-        overflow: hidden;
     }
     #myCanvasContainer {
         position: relative;
