@@ -1,63 +1,63 @@
 {
     "portfolio": [
         {
-            "cover": "/DeveloperPortfolio/humanoid.png",
+            "cover": "/humanoid.png",
             "title": "Humanoid AI Book",
             "description": "Docusaurus, Claude Code, RAG",
             "url": "https://humanoid-ai-book.vercel.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/nanotech.png",
+            "cover": "/nanotech.png",
             "title": "NanoTechX",
             "description": "React Router, Tailwind CSS, EmailJS",
             "url": "https://nanotechx.org/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/nodestream.png",
+            "cover": "/nodestream.png",
             "title": "NodeStream",
             "description": "NextJs, Mux, TRPC",
             "url": "https://nodestream-devsire.vercel.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/pingpanda.png",
+            "cover": "/pingpanda.png",
             "title": "PingPanda",
             "description": "Next14, PrismaDB, Honojs",
             "url": "https://pingpanda-devsire.vercel.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/commlinks.png",
+            "cover": "/commlinks.png",
             "title": "CommLinks",
             "description": "NextJS, Convex, Jotai",
             "url": "https://commlink-devsire.vercel.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/collab.png",
+            "cover": "/collab.png",
             "title": "CollabDocs",
             "description": "Next14, Typescript, Liveblocks",
             "url": "https://collabdocs-devsire.vercel.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/mindforge.png",
+            "cover": "/mindforge.png",
             "title": "MindForge",
             "description": "Next14, Convex, Clerk",
             "url": "https://mindforge-seven.vercel.app/",
             "isLive": true
         },
         {
-            "cover": "/DeveloperPortfolio/visageconnect.png",
+            "cover": "/visageconnect.png",
             "title": "Visage Connect",
             "description": "Next14, Convex, Clerk",
             "url": "https://github.com/dev-sire/Visage-Connect",
             "isLive": false
         },
         {
-            "cover": "/DeveloperPortfolio/visage.png",
+            "cover": "/visage.png",
             "title": "Visage Share",
             "description": "React Router, Appwrite, Tailwind CSS",
             "url": "https://visageshare.vercel.app/",
