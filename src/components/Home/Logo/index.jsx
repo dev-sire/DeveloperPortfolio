@@ -11,7 +11,6 @@ const Logo = () => {
 
   useEffect(() => {
     gsap.registerPlugin(DrawSVGPlugin)
-
     gsap
       .timeline()
       .to(bgRef.current, {
