@@ -17,7 +17,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "TagCloud": "^2.4.0",
     "animate.css": "^4.1.1",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.4",
@@ -30,8 +29,8 @@
     "react-leaflet": "^4.2.1",
     "react-loaders": "^3.0.1",
     "react-router-dom": "^6.22.0",
-    "react-svg-drawing": "^1.0.1",
     "sass": "^1.70.0",
+    "TagCloud": "^2.4.0",
     "vite-plugin-env-compatible": "^2.0.1"
   },
   "devDependencies": {
