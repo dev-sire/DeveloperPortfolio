@@ -45,6 +45,8 @@ const KILL_MSGS  = ['SPIKED!', 'GOT EM!', 'PUFF!', 'NICE AIM!', 'BLOWFISH WINS!'
 const BOSS_MSGS  = ["BIG ONE DOWN!!", 'BOSS SLAIN!', "WHO'S NEXT?!", 'LEGENDARY!', 'UNSTOPPABLE!']
 const MISS_MSGS  = ["THEY'RE GETTING THROUGH!", 'HOLD THE LINE!', 'FOCUS!!', "DON'T LET THEM PASS!"]
 const NUKE_MSGS  = ['OCEAN WRATH UNLEASHED!', 'EVERYTHING DIES.', 'PUFFER GOES NUCLEAR!', 'TACTICAL FISH STRIKE!', 'NO SURVIVORS.']
+const SLOW_MSGS  = ['TIME CRAWLS...', 'BULLET TIME!', 'SLOW MOTION ACTIVATED!', 'THE OCEAN HOLDS ITS BREATH...', 'FREEZE!']
+const BONUS_MSGS = ['BONUS BOX!', 'POWERS CHARGED!', 'FULL POWER!', 'JACKPOT!', 'LUCKY CATCH!']
 const WAVE_MSGS  = ['', 'HERE COME THE ORBS...', 'OUTNUMBERED BUT NOT OUTMATCHED', 'THE DEMONS AWAKEN', 'THINGS ARE GETTING SPICY 🌶', 'BOSSES INCOMING. GOOD LUCK.', 'FULL CHAOS MODE. YOU ASKED FOR THIS.']
 
 function spawnFeedback(feedbacks, x, y, text, color = '#ffd700', size = 15) {
@@ -61,6 +63,55 @@ function drawFeedbacks(ctx, feedbacks) {
         ctx.fillText(f.text, f.x, f.y)
         ctx.restore()
     })
+}
+
+// ── Bonus box drawing ─────────────────────────────────────────
+function drawBonusBox(ctx, box, tick) {
+    const { x, y, size } = box
+    ctx.save()
+
+    // pulsing glow
+    const pulse = 0.6 + Math.sin(tick * 0.1) * 0.4
+    ctx.shadowColor = 'rgba(255, 215, 0, 0.9)'
+    ctx.shadowBlur = 12 + pulse * 10
+
+    // gold box body
+    const gradient = ctx.createLinearGradient(x - size / 2, y - size / 2, x + size / 2, y + size / 2)
+    gradient.addColorStop(0, '#ffe566')
+    gradient.addColorStop(0.5, '#ffd700')
+    gradient.addColorStop(1, '#c8a800')
+    ctx.fillStyle = gradient
+    ctx.beginPath()
+    ctx.roundRect(x - size / 2, y - size / 2, size, size, 4)
+    ctx.fill()
+
+    // inner border shine
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)'
+    ctx.lineWidth = 1.5
+    ctx.beginPath()
+    ctx.roundRect(x - size / 2 + 3, y - size / 2 + 3, size - 6, size - 6, 3)
+    ctx.stroke()
+
+    // question mark / lightning icon
+    ctx.shadowBlur = 0
+    ctx.fillStyle = 'rgba(10, 22, 38, 0.85)'
+    ctx.font = `700 ${size * 0.55}px 'Share Tech Mono', monospace`
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillText('⚡', x, y + 1)
+    ctx.textBaseline = 'alphabetic'
+
+    // spin border using tick
+    ctx.strokeStyle = `rgba(255, 230, 100, ${pulse})`
+    ctx.lineWidth = 2
+    ctx.setLineDash([4, 4])
+    ctx.lineDashOffset = -tick * 0.5
+    ctx.beginPath()
+    ctx.roundRect(x - size / 2 - 3, y - size / 2 - 3, size + 6, size + 6, 6)
+    ctx.stroke()
+    ctx.setLineDash([])
+
+    ctx.restore()
 }
 
 function drawEnemy(ctx, e, tick) {
@@ -159,28 +210,29 @@ function drawIntro(ctx, w, h, progress) {
 
     ctx.font = "13px 'Share Tech Mono', monospace"
     ctx.fillStyle = 'rgba(255,215,0,0.55)'; ctx.textAlign = 'center'
-    ctx.fillText('// INITIALIZING THREAT PROTOCOL', w / 2, h * 0.40)
+    ctx.fillText('// INITIALIZING THREAT PROTOCOL', w / 2, h * 0.38)
 
     ctx.font = `700 ${Math.min(72, w * 0.07)}px 'Coolvetica', sans-serif`
     ctx.fillStyle = '#ffd700'
     ctx.shadowColor = 'rgba(255,215,0,0.4)'; ctx.shadowBlur = 24
-    ctx.fillText('FISHY GUARDIAN', w / 2, h * 0.50)
+    ctx.fillText('FISHY GUARDIAN', w / 2, h * 0.48)
     ctx.shadowBlur = 0
 
     ctx.font = "15px 'Share Tech Mono', monospace"; ctx.fillStyle = '#e8f4ff'
-    ctx.fillText('The ocean is under attack. You are the last pufferfish.', w / 2, h * 0.575)
+    ctx.fillText('The ocean is under attack. You are the last pufferfish.', w / 2, h * 0.555)
 
     ctx.font = "12px 'Share Tech Mono', monospace"; ctx.fillStyle = 'rgba(142,171,200,0.8)'
-    ctx.fillText("CLICK to damage  ·  [ N ] Nuke when charged  ·  Don't let them reach the bottom", w / 2, h * 0.635)
+    ctx.fillText("CLICK to damage  ·  [ N ] Nuke  ·  [ T ] Time Slow  ·  ⚡ Bonus boxes charge both powers", w / 2, h * 0.61)
+    ctx.fillText("Don't let enemies reach the bottom", w / 2, h * 0.645)
 
     ctx.strokeStyle = 'rgba(255,215,0,0.3)'; ctx.setLineDash([6, 4])
-    ctx.beginPath(); ctx.moveTo(w * 0.3, h * 0.67); ctx.lineTo(w * 0.7, h * 0.67); ctx.stroke()
+    ctx.beginPath(); ctx.moveTo(w * 0.3, h * 0.685); ctx.lineTo(w * 0.7, h * 0.685); ctx.stroke()
     ctx.setLineDash([])
 
     const secondsLeft = Math.ceil(3 - progress * 3)
     ctx.font = "700 11px 'Share Tech Mono', monospace"
     ctx.fillStyle = 'rgba(255,215,0,0.4)'
-    ctx.fillText(`STARTING IN ${secondsLeft}...`, w / 2, h * 0.72)
+    ctx.fillText(`STARTING IN ${secondsLeft}...`, w / 2, h * 0.725)
     ctx.restore()
 }
 
@@ -207,48 +259,107 @@ function drawWaveBanner(ctx, w, h, banner) {
     ctx.restore()
 }
 
-// ── Nuke charge bar (bottom center) ──────────────────────────
-function drawNukeBar(ctx, W, H, nukeCharge, nukeReady, tick) {
-    const barW = 200, barH = 6
-    const barX = W / 2 - barW / 2
+// ── Time slow overlay tint ────────────────────────────────────
+function drawSlowOverlay(ctx, W, H, slowActive, slowDuration, slowMax) {
+    if (!slowActive) return
+    const t = slowDuration / slowMax
+    ctx.save()
+    // blue-teal tint over the whole screen, fades as slow wears off
+    ctx.fillStyle = `rgba(30, 100, 180, ${t * 0.12})`
+    ctx.fillRect(0, 0, W, H)
+    // vignette edge pulse
+    const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.8)
+    vg.addColorStop(0, 'transparent')
+    vg.addColorStop(1, `rgba(10, 60, 140, ${t * 0.25})`)
+    ctx.fillStyle = vg
+    ctx.fillRect(0, 0, W, H)
+    ctx.restore()
+}
+
+// ── Power bars (bottom center) ────────────────────────────────
+function drawPowerBars(ctx, W, H, nukeCharge, nukeReady, slowCharge, slowReady, slowActive, slowDuration, slowMax, tick) {
+    const barW = 160, barH = 6, gap = 24
+    const totalW = barW * 2 + gap
+    const startX = W / 2 - totalW / 2
     const barY = H - 30
-    const fillW = (nukeCharge / 100) * barW
+
+    // ── Nuke bar (left) ───────────────────────────────────────
+    const nukePulse = nukeReady ? 0.7 + Math.sin(tick * 0.15) * 0.3 : 1
+    ctx.save()
 
     // track
-    ctx.save()
     ctx.fillStyle = 'rgba(255,255,255,0.07)'
-    ctx.beginPath(); ctx.roundRect(barX, barY, barW, barH, 3); ctx.fill()
+    ctx.beginPath(); ctx.roundRect(startX, barY, barW, barH, 3); ctx.fill()
 
     // fill
-    const pulse = nukeReady ? 0.7 + Math.sin(tick * 0.15) * 0.3 : 1
     if (nukeReady) {
-        // gold pulsing glow when ready
-        ctx.shadowColor = 'rgba(255,215,0,0.6)'
-        ctx.shadowBlur = 10
-        ctx.fillStyle = `rgba(255, 215, 0, ${pulse})`
+        ctx.shadowColor = 'rgba(255,215,0,0.7)'; ctx.shadowBlur = 10
+        ctx.fillStyle = `rgba(255, 215, 0, ${nukePulse})`
     } else {
-        // blue → orange gradient as it charges
         const pct = nukeCharge / 100
         const r = Math.round(74 + (255 - 74) * pct)
         const g = Math.round(138 + (152 - 138) * pct)
         const b = Math.round(181 + (0 - 181) * pct)
         ctx.fillStyle = `rgb(${r},${g},${b})`
     }
-    ctx.beginPath(); ctx.roundRect(barX, barY, fillW, barH, 3); ctx.fill()
+    const nukeFillW = (nukeCharge / 100) * barW
+    ctx.beginPath(); ctx.roundRect(startX, barY, nukeFillW, barH, 3); ctx.fill()
     ctx.shadowBlur = 0
 
     // label
-    ctx.font = "700 10px 'Share Tech Mono', monospace"
-    ctx.textAlign = 'center'
+    ctx.font = "700 9px 'Share Tech Mono', monospace"; ctx.textAlign = 'center'
     if (nukeReady) {
-        ctx.fillStyle = `rgba(255, 215, 0, ${pulse})`
-        ctx.shadowColor = 'rgba(255,215,0,0.5)'; ctx.shadowBlur = 8
-        ctx.fillText('[ N ]  NUKE READY  [ N ]', W / 2, barY - 8)
+        ctx.fillStyle = `rgba(255, 215, 0, ${nukePulse})`
+        ctx.shadowColor = 'rgba(255,215,0,0.5)'; ctx.shadowBlur = 6
+        ctx.fillText('[ N ] NUKE READY', startX + barW / 2, barY - 7)
         ctx.shadowBlur = 0
     } else {
         ctx.fillStyle = 'rgba(255,255,255,0.28)'
-        ctx.fillText(`NUKE  ${Math.floor(nukeCharge)}%`, W / 2, barY - 8)
+        ctx.fillText(`[ N ] NUKE  ${Math.floor(nukeCharge)}%`, startX + barW / 2, barY - 7)
     }
+
+    // ── Slow bar (right) ──────────────────────────────────────
+    const slowX = startX + barW + gap
+
+    // when active — show countdown drain instead of charge
+    const slowDisplayCharge = slowActive ? (slowDuration / slowMax) * 100 : slowCharge
+    const slowDisplayReady = slowReady && !slowActive
+    const slowPulse = slowDisplayReady ? 0.7 + Math.sin(tick * 0.15 + 1.5) * 0.3 : 1
+
+    // track
+    ctx.fillStyle = 'rgba(255,255,255,0.07)'
+    ctx.beginPath(); ctx.roundRect(slowX, barY, barW, barH, 3); ctx.fill()
+
+    // fill
+    if (slowActive) {
+        // draining cyan
+        ctx.fillStyle = `rgba(80, 200, 255, ${0.5 + (slowDuration / slowMax) * 0.5})`
+    } else if (slowDisplayReady) {
+        ctx.shadowColor = 'rgba(80,200,255,0.7)'; ctx.shadowBlur = 10
+        ctx.fillStyle = `rgba(80, 200, 255, ${slowPulse})`
+    } else {
+        // charging — grey→cyan
+        const pct = slowCharge / 100
+        ctx.fillStyle = `rgba(${Math.round(74 + (80 - 74) * pct)}, ${Math.round(138 + (200 - 138) * pct)}, ${Math.round(181 + (255 - 181) * pct)}, 1)`
+    }
+    const slowFillW = (slowDisplayCharge / 100) * barW
+    ctx.beginPath(); ctx.roundRect(slowX, barY, slowFillW, barH, 3); ctx.fill()
+    ctx.shadowBlur = 0
+
+    // label
+    if (slowActive) {
+        ctx.fillStyle = `rgba(80, 200, 255, ${0.6 + (slowDuration / slowMax) * 0.4})`
+        ctx.fillText('⏱ TIME SLOWED...', slowX + barW / 2, barY - 7)
+    } else if (slowDisplayReady) {
+        ctx.fillStyle = `rgba(80, 200, 255, ${slowPulse})`
+        ctx.shadowColor = 'rgba(80,200,255,0.5)'; ctx.shadowBlur = 6
+        ctx.fillText('[ T ] SLOW READY', slowX + barW / 2, barY - 7)
+        ctx.shadowBlur = 0
+    } else {
+        ctx.fillStyle = 'rgba(255,255,255,0.28)'
+        ctx.fillText(`[ T ] SLOW  ${Math.floor(slowCharge)}%`, slowX + barW / 2, barY - 7)
+    }
+
     ctx.restore()
 }
 
@@ -256,24 +367,51 @@ export default function BatGame({ onClose }) {
     const canvasRef = useRef(null)
     const cursorImgRef = useRef(null)
     const stateRef = useRef({
-        enemies: [], particles: [], feedbacks: [],
+        enemies: [], particles: [], feedbacks: [], bonusBoxes: [],
         score: 0, lives: 3, wave: 1, lastWave: 0,
-        spawnTimer: 0,
+        spawnTimer: 0, bonusTimer: 0,
         animFrame: null,
         gameOver: false, tick: 0,
         introDone: false,
         waveBanner: null,
         combo: 0, comboTimer: 0,
-        // ── nuke ──
+        // ── nuke ──────────────────────
         nukeCharge: 0,
         nukeReady: false,
         nukeFlash: 0,
+        // ── time slow ─────────────────
+        slowCharge: 0,
+        slowReady: false,
+        slowActive: false,
+        slowDuration: 0,
+        slowMax: 300,        // 5 seconds at 60fps
+        SLOW_FACTOR: 0.25,   // enemies move at 25% speed when active
     })
 
     useEffect(() => {
         const img = new Image()
         img.src = './pufferfish-cursor.png'
         img.onload = () => { cursorImgRef.current = img }
+    }, [])
+
+    const chargepowers = useCallback((amount) => {
+        const s = stateRef.current
+        // charge nuke
+        if (!s.nukeReady) {
+            s.nukeCharge = Math.min(100, s.nukeCharge + amount)
+            if (s.nukeCharge >= 100) {
+                s.nukeReady = true
+                spawnFeedback(s.feedbacks, stateRef.current._W / 2 || 600, 80, '[ N ] NUKE READY', '#ffd700', 14)
+            }
+        }
+        // charge slow
+        if (!s.slowReady && !s.slowActive) {
+            s.slowCharge = Math.min(100, s.slowCharge + amount)
+            if (s.slowCharge >= 100) {
+                s.slowReady = true
+                spawnFeedback(s.feedbacks, stateRef.current._W / 2 || 600, 100, '[ T ] SLOW READY', '#50c8ff', 14)
+            }
+        }
     }, [])
 
     const spawnEnemy = useCallback((canvas) => {
@@ -288,6 +426,7 @@ export default function BatGame({ onClose }) {
             type, size: type.size,
             hp: type.hp, maxHp: type.hp,
             speed: type.speed * speedMult,
+            baseSpeed: type.speed * speedMult,  // store original for slow restore
             wobbleOffset: Math.random() * Math.PI * 2,
         })
     }, [])
@@ -306,11 +445,25 @@ export default function BatGame({ onClose }) {
         }
     }, [])
 
+    const spawnBonusBox = useCallback((canvas) => {
+        stateRef.current.bonusBoxes.push({
+            x: 40 + Math.random() * (canvas.width - 80),
+            y: -40,
+            size: 34,
+            speed: 0.9,
+            hp: 1,
+        })
+    }, [])
+
     useEffect(() => {
         const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
 
-        const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
+        const resize = () => {
+            canvas.width = window.innerWidth
+            canvas.height = window.innerHeight
+            stateRef.current._W = canvas.width  // cache for chargepower feedback positioning
+        }
         resize()
         window.addEventListener('resize', resize)
 
@@ -324,6 +477,28 @@ export default function BatGame({ onClose }) {
             const { clientX: mx, clientY: my } = e
             let didHit = false
 
+            // ── check bonus boxes first ───────────────────────
+            s.bonusBoxes = s.bonusBoxes.filter(box => {
+                const dist = Math.hypot(box.x - mx, box.y - my)
+                if (dist < box.size / 2 + 10) {
+                    didHit = true
+                    // fully charge BOTH powers
+                    s.nukeCharge = 100; s.nukeReady = true
+                    s.slowCharge = 100; s.slowReady = true
+
+                    spawnParticles(box.x, box.y, '#ffd700', 28)
+                    spawnParticles(box.x, box.y, '#ffffff', 14)
+                    spawnParticles(box.x, box.y, '#50c8ff', 14)
+
+                    const msg = BONUS_MSGS[Math.floor(Math.random() * BONUS_MSGS.length)]
+                    spawnFeedback(s.feedbacks, box.x, box.y - 24, msg, '#ffd700', 20)
+                    spawnFeedback(s.feedbacks, box.x, box.y - 50, 'N + T CHARGED!', '#50c8ff', 14)
+                    return false
+                }
+                return true
+            })
+
+            // ── check enemies ─────────────────────────────────
             s.enemies = s.enemies.filter(enemy => {
                 const dist = Math.hypot(enemy.x - mx, enemy.y - my)
                 if (dist < enemy.size / 2 + 10) {
@@ -336,13 +511,9 @@ export default function BatGame({ onClose }) {
                         s.combo++
                         s.comboTimer = 90
 
-                        // ── charge nuke on kill ───────────────
+                        // charge both powers on kill (kills charge slower than bonus box)
                         const chargeGain = enemy.type.points * 0.8
-                        s.nukeCharge = Math.min(100, s.nukeCharge + chargeGain)
-                        if (s.nukeCharge >= 100 && !s.nukeReady) {
-                            s.nukeReady = true
-                            spawnFeedback(s.feedbacks, canvas.width / 2, canvas.height * 0.88, '[ N ]  NUKE READY', '#ffd700', 16)
-                        }
+                        chargepower(s, chargeGain, canvas, spawnParticles)
 
                         spawnParticles(enemy.x, enemy.y, '#ffd700', 16)
 
@@ -366,44 +537,57 @@ export default function BatGame({ onClose }) {
         }
         canvas.addEventListener('click', onClick)
 
-        // ── Nuke key listener ─────────────────────────────────
+        // ── Power key listeners ───────────────────────────────
         const onKeyDown = (e) => {
-            if (e.key !== 'n' && e.key !== 'N') return
             const s = stateRef.current
-            if (!s.nukeReady || s.gameOver || !s.introDone) return
-
             const W = canvas.width, H = canvas.height
 
-            // blast every enemy off the screen
-            s.enemies.forEach(enemy => {
-                s.score += Math.floor(enemy.type.points * 0.5) // half points — nuking isn't free
-                // burst of particles from each enemy position
-                spawnParticles(enemy.x, enemy.y, '#ffd700', 22)
-                spawnParticles(enemy.x, enemy.y, '#ffffff', 10)
-                spawnParticles(enemy.x, enemy.y, enemy.type.color, 12)
-            })
-            s.enemies = []
+            // NUKE — N
+            if ((e.key === 'n' || e.key === 'N') && s.nukeReady && !s.gameOver && s.introDone) {
+                s.enemies.forEach(enemy => {
+                    s.score += Math.floor(enemy.type.points * 0.5)
+                    spawnParticles(enemy.x, enemy.y, '#ffd700', 22)
+                    spawnParticles(enemy.x, enemy.y, '#ffffff', 10)
+                    spawnParticles(enemy.x, enemy.y, enemy.type.color, 12)
+                })
+                s.bonusBoxes.forEach(box => spawnParticles(box.x, box.y, '#ffd700', 8))
+                s.enemies = []
+                s.bonusBoxes = []  // nuke also clears bonus boxes
+                s.nukeCharge = 0; s.nukeReady = false
+                s.nukeFlash = 18
+                const msg = NUKE_MSGS[Math.floor(Math.random() * NUKE_MSGS.length)]
+                spawnFeedback(s.feedbacks, W / 2, H / 2 - 20, msg, '#ffd700', 26)
+            }
 
-            // nuke state reset
-            s.nukeCharge = 0
-            s.nukeReady = false
-            s.nukeFlash = 18  // frames of white flash
+            // TIME SLOW — T
+            if ((e.key === 't' || e.key === 'T') && s.slowReady && !s.slowActive && !s.gameOver && s.introDone) {
+                s.slowActive = true
+                s.slowReady = false
+                s.slowCharge = 0
+                s.slowDuration = s.slowMax
 
-            // random dramatic feedback center screen
-            const msg = NUKE_MSGS[Math.floor(Math.random() * NUKE_MSGS.length)]
-            spawnFeedback(s.feedbacks, W / 2, H / 2 - 20, msg, '#ffd700', 26)
+                // slow all current enemies
+                s.enemies.forEach(enemy => { enemy.speed = enemy.baseSpeed * s.SLOW_FACTOR })
+                // also slow bonus boxes
+                s.bonusBoxes.forEach(box => { box._baseSpeed = box.speed; box.speed = box.speed * s.SLOW_FACTOR })
+
+                const msg = SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)]
+                spawnFeedback(s.feedbacks, W / 2, H / 2 - 20, msg, '#50c8ff', 26)
+            }
         }
         window.addEventListener('keydown', onKeyDown)
-
         canvas.style.cursor = 'none'
 
         const INTRO_DURATION = 180
+        // bonus box spawns every ~15 seconds (900 frames), randomised ±200 frames
+        const BONUS_INTERVAL = 900
 
         const loop = () => {
             const s = stateRef.current
             const W = canvas.width, H = canvas.height
             ctx.clearRect(0, 0, W, H)
             s.tick++
+            s._W = W
 
             // ── Intro ─────────────────────────────────────────
             if (!s.introDone) {
@@ -413,6 +597,8 @@ export default function BatGame({ onClose }) {
                     s.introDone = true
                     s.waveBanner = { wave: 1, msg: 'WAVES BEGIN. START SMALL.', life: 150, maxLife: 150 }
                     s.lastWave = 1
+                    // randomise first bonus box timing
+                    s.bonusTimer = Math.floor(BONUS_INTERVAL * 0.5 + Math.random() * BONUS_INTERVAL * 0.5)
                 }
                 if (cursorImgRef.current) ctx.drawImage(cursorImgRef.current, mouse.x - 24, mouse.y - 24, 48, 48)
                 s.animFrame = requestAnimationFrame(loop)
@@ -421,6 +607,7 @@ export default function BatGame({ onClose }) {
 
             // ── Game logic ────────────────────────────────────
             if (!s.gameOver) {
+                // wave advancement
                 const newWave = Math.floor(s.score / 250) + 1
                 if (newWave !== s.wave) {
                     s.wave = newWave
@@ -428,9 +615,23 @@ export default function BatGame({ onClose }) {
                     if (msg) s.waveBanner = { wave: newWave, msg, life: 150, maxLife: 150 }
                 }
 
+                // combo decay
                 if (s.comboTimer > 0) s.comboTimer--
                 else s.combo = 0
 
+                // time slow tick-down
+                if (s.slowActive) {
+                    s.slowDuration--
+                    if (s.slowDuration <= 0) {
+                        // restore all enemy speeds
+                        s.enemies.forEach(enemy => { enemy.speed = enemy.baseSpeed })
+                        s.bonusBoxes.forEach(box => { box.speed = box._baseSpeed || 0.9 })
+                        s.slowActive = false
+                        spawnFeedback(s.feedbacks, W / 2, H / 2, 'TIME RESUMES.', '#50c8ff', 16)
+                    }
+                }
+
+                // enemy spawning
                 const spawnCfg = getWaveSpawn(s.wave)
                 s.spawnTimer++
                 if (s.spawnTimer >= spawnCfg.interval) {
@@ -441,11 +642,18 @@ export default function BatGame({ onClose }) {
                     }
                 }
 
+                // bonus box spawning
+                s.bonusTimer++
+                if (s.bonusTimer >= BONUS_INTERVAL + Math.floor((Math.random() - 0.5) * 200)) {
+                    s.bonusTimer = 0
+                    spawnBonusBox(canvas)
+                }
+
+                // move enemies
                 s.enemies = s.enemies.filter(enemy => {
                     enemy.y += enemy.speed
                     if (enemy.y > H + enemy.size) {
-                        s.lives -= 1
-                        s.combo = 0
+                        s.lives -= 1; s.combo = 0
                         spawnParticles(enemy.x, H - 30, '#e53935', 10)
                         const msg = MISS_MSGS[Math.floor(Math.random() * MISS_MSGS.length)]
                         spawnFeedback(s.feedbacks, W / 2, H - 60, msg, '#e53935', 14)
@@ -455,6 +663,21 @@ export default function BatGame({ onClose }) {
                     return true
                 })
 
+                // move bonus boxes — if they exit bottom, just remove (no life penalty)
+                s.bonusBoxes = s.bonusBoxes.filter(box => {
+                    box.y += box.speed
+                    return box.y < H + box.size
+                })
+
+                // newly spawned enemies during slow should also be slowed
+                if (s.slowActive) {
+                    s.enemies.forEach(enemy => {
+                        if (enemy.speed === enemy.baseSpeed) {
+                            enemy.speed = enemy.baseSpeed * s.SLOW_FACTOR
+                        }
+                    })
+                }
+
                 s.particles = s.particles.filter(p => { p.x += p.vx; p.y += p.vy; p.vy += 0.1; p.life--; return p.life > 0 })
                 s.feedbacks = s.feedbacks.filter(f => { f.y += f.vy; f.life--; return f.life > 0 })
                 if (s.waveBanner) { s.waveBanner.life--; if (s.waveBanner.life <= 0) s.waveBanner = null }
@@ -463,18 +686,24 @@ export default function BatGame({ onClose }) {
             // ── Render ────────────────────────────────────────
             ctx.fillStyle = 'rgba(13, 27, 42, 0.15)'; ctx.fillRect(0, 0, W, H)
 
+            // time slow screen tint
+            drawSlowOverlay(ctx, W, H, s.slowActive, s.slowDuration, s.slowMax)
+
             // danger line
             ctx.save()
             ctx.strokeStyle = 'rgba(229, 57, 53, 0.2)'; ctx.lineWidth = 1; ctx.setLineDash([8, 6])
             ctx.beginPath(); ctx.moveTo(0, H - 8); ctx.lineTo(W, H - 8); ctx.stroke()
             ctx.setLineDash([]); ctx.restore()
 
+            // bonus boxes (drawn under enemies)
+            s.bonusBoxes.forEach(box => drawBonusBox(ctx, box, s.tick))
+
             s.enemies.forEach(e => drawEnemy(ctx, e, s.tick))
             drawParticles(ctx, s.particles)
             drawFeedbacks(ctx, s.feedbacks)
             drawWaveBanner(ctx, W, H, s.waveBanner)
 
-            // ── Nuke flash ────────────────────────────────────
+            // nuke flash
             if (s.nukeFlash > 0) {
                 ctx.save()
                 ctx.fillStyle = `rgba(255, 230, 100, ${(s.nukeFlash / 18) * 0.75})`
@@ -483,10 +712,16 @@ export default function BatGame({ onClose }) {
                 s.nukeFlash--
             }
 
-            // ── Nuke bar ──────────────────────────────────────
-            if (!s.gameOver) drawNukeBar(ctx, W, H, s.nukeCharge, s.nukeReady, s.tick)
+            // power bars
+            if (!s.gameOver) {
+                drawPowerBars(ctx, W, H,
+                    s.nukeCharge, s.nukeReady,
+                    s.slowCharge, s.slowReady, s.slowActive, s.slowDuration, s.slowMax,
+                    s.tick
+                )
+            }
 
-            // ── HUD ───────────────────────────────────────────
+            // HUD
             ctx.font = "700 16px 'Share Tech Mono', monospace"
             ctx.textAlign = 'left'; ctx.fillStyle = '#ffd700'
             ctx.fillText(`SCORE  ${s.score}`, 24, 38)
@@ -508,7 +743,7 @@ export default function BatGame({ onClose }) {
             ctx.fillText('ESC to exit', W - 24, 28)
             ctx.textAlign = 'left'
 
-            // ── Cursor ────────────────────────────────────────
+            // cursor
             if (cursorImgRef.current) {
                 ctx.drawImage(cursorImgRef.current, mouse.x - 28, mouse.y - 28, 56, 56)
             } else {
@@ -518,11 +753,10 @@ export default function BatGame({ onClose }) {
                 ctx.restore()
             }
 
-            // ── Game Over ─────────────────────────────────────
+            // game over
             if (s.gameOver) {
                 ctx.fillStyle = 'rgba(10,20,35,0.88)'; ctx.fillRect(0, 0, W, H)
                 ctx.textAlign = 'center'
-
                 ctx.font = `700 ${Math.min(64, W * 0.06)}px 'Coolvetica', sans-serif`
                 ctx.fillStyle = '#ffd700'
                 ctx.shadowColor = 'rgba(255,215,0,0.35)'; ctx.shadowBlur = 20
@@ -539,11 +773,9 @@ export default function BatGame({ onClose }) {
                 ctx.font = "14px 'Share Tech Mono', monospace"
                 ctx.fillStyle = 'rgba(255,215,0,0.55)'
                 ctx.fillText(signOff, W / 2, H / 2 - 22)
-
                 ctx.font = "20px 'Share Tech Mono', monospace"; ctx.fillStyle = '#e8f4ff'
                 ctx.fillText(`Final Score: ${s.score}`, W / 2, H / 2 + 18)
                 ctx.fillText(`Waves Survived: ${s.wave}`, W / 2, H / 2 + 48)
-
                 ctx.font = "13px 'Share Tech Mono', monospace"
                 ctx.fillStyle = 'rgba(255,215,0,0.45)'
                 ctx.fillText('Press ESC to exit', W / 2, H / 2 + 94)
@@ -560,13 +792,31 @@ export default function BatGame({ onClose }) {
             window.removeEventListener('resize', resize)
             window.removeEventListener('mousemove', onMouseMove)
             canvas.removeEventListener('click', onClick)
-            window.removeEventListener('keydown', onKeyDown)  // clean up nuke listener
+            window.removeEventListener('keydown', onKeyDown)
         }
-    }, [spawnEnemy, spawnParticles])
+    }, [spawnEnemy, spawnParticles, spawnBonusBox, chargepower])
 
     return (
         <div className="bat-game-overlay">
             <canvas ref={canvasRef} className="bat-game-canvas" />
         </div>
     )
+}
+
+// ── inline charge helper (avoids stale closure on useCallback) 
+function chargepower(s, amount, canvas, spawnParticles) {
+    if (!s.nukeReady) {
+        s.nukeCharge = Math.min(100, s.nukeCharge + amount)
+        if (s.nukeCharge >= 100) {
+            s.nukeReady = true
+            spawnFeedback(s.feedbacks, canvas.width / 2, 80, '[ N ] NUKE READY', '#ffd700', 14)
+        }
+    }
+    if (!s.slowReady && !s.slowActive) {
+        s.slowCharge = Math.min(100, s.slowCharge + amount)
+        if (s.slowCharge >= 100) {
+            s.slowReady = true
+            spawnFeedback(s.feedbacks, canvas.width / 2, 100, '[ T ] SLOW READY', '#50c8ff', 14)
+        }
+    }
 }
