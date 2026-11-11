@@ -93,7 +93,7 @@ html.lenis,html.lenis body{height:auto}
 .timeline{margin:110px 0 0 25%;border-top:1px solid var(--line)}
 .timeline-item{position:relative;display:grid;grid-template-columns:1fr 2fr;gap:30px;padding:30px 0}
 .rule{position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
-.timeline-item>span{color:var(--red);font-size:10px;letter-spacing:1px}
+.timeline-item>span{color:white;font-size:10px;letter-spacing:1px}
 .timeline-item h3{font-size:18px;font-weight:500;margin:0 0 8px}
 .timeline-item p,.timeline-item small{color:var(--muted);margin:0}
 .timeline-item small{display:block;line-height:1.6;margin-top:18px;max-width:450px}
@@ -219,7 +219,7 @@ html.lenis,html.lenis body{height:auto}
 .archive-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}
 .archive-title{margin-top:22px;font-size:clamp(48px,6vw,92px)}
 .archive-bar{display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:48px 0 36px}
-.tabs{display:flex;gap:6px;overflow-x:auto}
+.tabs{display:flex;gap:6px;overflow:hidden}
 .tab{border:0;background:none;color:var(--muted);font-size:13px;padding:18px 18px;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap;transition:color .2s}
 .tab:hover{color:var(--ink)}
 .tab.active{color:var(--ink);border-bottom-color:var(--red)}

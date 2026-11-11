@@ -109,11 +109,11 @@ export const toolGroups = [
 export const marqueeWords = ['Nmap', 'Wazuh', 'Burp Suite', 'Wireshark', 'Metasploit', 'Next.js', 'Kali Linux', 'Velociraptor']
 
 export const certifications = [
-  { name: 'Certified in Cybersecurity (CC)', issuer: 'ISC2' },
-  { name: 'Security Analyst Professional Certificate', issuer: 'IBM' },
-  { name: 'Certified Ethical Hacker (CEH)', issuer: 'NAVTTC' },
-  { name: 'CCNA', issuer: 'Cisco' },
+  { name: 'CCNP Instructor Trainings', issuer: 'Cisco' },
+  { name: 'CCNA Instructor Trainings', issuer: 'Cisco' },
   { name: 'CyberOps Associate', issuer: 'Cisco' },
+  { name: 'Security Analyst Professional Certificate', issuer: 'IBM' },
+  { name: 'Certified Ethical Hacker (CEH)', issuer: 'EC-Council' },
 ]
 
 export const focusAreas = ['Penetration testing', 'SIEM & SOC', 'Digital forensics', 'Network security', 'Full-stack development']

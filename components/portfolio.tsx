@@ -159,7 +159,7 @@ export function Portfolio() {
             </div>
             <div className="hero-art" role="img" aria-label="Portrait of Aman Shahid">
               <div className="hero-shape shape-two" />
-              <img className="hero-photo" src="/aman.jpg" alt="" />
+              <img className="hero-photo" src="/aman.jpeg" alt="" />
               <div className="hero-art-label">SECURITY<br />/ SYSTEMS<br />/ IMPACT</div>
             </div>
           </div>
@@ -187,8 +187,8 @@ export function Portfolio() {
           </div>
           <div className="timeline">
             <div className="timeline-item"><i className="rule" /><span>2025 — Present</span><div><h3>Cisco Networking Academy Instructor &amp; Program Lead</h3><p>NanoTechX · Karachi, Pakistan</p><small>Leading CCNA and CCNP Enterprise tracks, mentoring the next generation of network engineers.</small></div></div>
-            <div className="timeline-item"><i className="rule" /><span>2023 — 2027</span><div><h3>Bachelor of Science in Cybersecurity</h3><p>Dawood University of Engineering &amp; Technology</p><small>Enterprise network security, digital forensics, reverse engineering, and software security.</small></div></div>
             <div className="timeline-item"><i className="rule" /><span>Aug — Oct 2024</span><div><h3>Network Engineering Intern</h3><p>BITS · H3C Department</p><small>Enterprise networking, routing and switching protocols, and network operations.</small></div></div>
+            <div className="timeline-item"><i className="rule" /><span>2023 — 2027</span><div><h3>Bachelor of Science in Cybersecurity</h3><p>Dawood University of Engineering &amp; Technology</p><small>Enterprise network security, digital forensics, reverse engineering, and software security.</small></div></div>
           </div>
         </section>
       </div>
