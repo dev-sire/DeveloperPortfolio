@@ -1,0 +1,150 @@
+// All editable portfolio content lives here.
+
+export const EMAIL = 'shahidamaan2019@gmail.com'
+
+export type Project = {
+  slug: string
+  title: string
+  kind: string
+  category: string
+  year: string
+  description: string
+  tools: string[]
+  source?: string
+  tone: string
+  featured: boolean
+  // Screenshot shown in the project panel and on the projects page.
+  // Replace the file in /public/projects (1600x1000 works best), or change this path.
+  image: string
+}
+
+export const allProjects: Project[] = [
+  {
+    slug: 'dfir-companion',
+    title: 'DFIR Companion',
+    kind: 'Security',
+    category: 'Cybersecurity & Digital Forensics',
+    year: '2026',
+    description: 'Automated digital forensics and incident response platform for streamlined investigations.',
+    tools: ['Python', 'Velociraptor', 'Docker'],
+    source: 'https://github.com/hasamba/DFIR-Companion',
+    tone: 'project-red',
+    featured: true,
+    image: '/projects/dfir-companion.png',
+  },
+  {
+    slug: 'nodestream',
+    title: 'NodeStream',
+    kind: 'Web app',
+    category: 'Full-Stack Web App',
+    year: '2026',
+    description: 'AI-powered video streaming platform built for high-throughput media distribution.',
+    tools: ['Node.js', 'React', 'TypeScript'],
+    source: 'https://github.com/dev-sire/NodeStream',
+    tone: 'project-blue',
+    featured: true,
+    image: '/projects/nodestream.png',
+  },
+  {
+    slug: 'ascendia',
+    title: 'Ascendia',
+    kind: 'Web app',
+    category: 'Full-Stack Web App',
+    year: '2026',
+    description: 'AI-enhanced learning management system designed for modern education.',
+    tools: ['Next.js', 'Prisma', 'Tailwind'],
+    source: 'https://github.com/dev-sire',
+    tone: 'project-sand',
+    featured: true,
+    image: '/projects/ascendia.png',
+  },
+  {
+    slug: 'pingpanda',
+    title: 'PingPanda',
+    kind: 'DevOps',
+    category: 'DevOps & Security',
+    year: '2026',
+    description: 'Real-time event monitoring and alert system for serverless infrastructure.',
+    tools: ['Next.js', 'MySQL', 'Prisma'],
+    source: 'https://github.com/dev-sire',
+    tone: 'project-violet',
+    featured: true,
+    image: '/projects/pingpanda.png',
+  },
+  {
+    slug: 'redmind-ai',
+    title: 'RedMind-AI',
+    kind: 'Security',
+    category: 'Cybersecurity & Penetration Testing',
+    year: '2026',
+    description: 'Autonomous vulnerability assessment and penetration testing console.',
+    tools: [],
+    tone: 'project-red',
+    featured: false,
+    image: '/projects/redmind-ai.png',
+  },
+  {
+    slug: 'vs-soc',
+    title: 'VS-SOC',
+    kind: 'Security',
+    category: 'Security Operations',
+    year: '2026',
+    description: 'Multi-tenant security operations dashboard with role-based access, built on self-hosted Wazuh.',
+    tools: ['Wazuh'],
+    tone: 'project-blue',
+    featured: false,
+    image: '/projects/vs-soc.png',
+  },
+]
+
+export const featuredProjects = allProjects.filter((project) => project.featured)
+
+export const toolGroups = [
+  { label: 'Offensive security', items: ['Kali Linux', 'Nmap', 'Burp Suite', 'Metasploit', 'Apktool'] },
+  { label: 'Defense & forensics', items: ['Wazuh', 'Velociraptor', 'Wireshark'] },
+  { label: 'Networking & systems', items: ['Cisco IOS', 'Packet Tracer', 'Linux', 'Bash'] },
+  { label: 'Build', items: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Prisma', 'MySQL', 'Python', 'Docker'] },
+]
+
+export const marqueeWords = ['Nmap', 'Wazuh', 'Burp Suite', 'Wireshark', 'Metasploit', 'Next.js', 'Kali Linux', 'Velociraptor']
+
+export const certifications = [
+  { name: 'Certified in Cybersecurity (CC)', issuer: 'ISC2' },
+  { name: 'Security Analyst Professional Certificate', issuer: 'IBM' },
+  { name: 'Certified Ethical Hacker (CEH)', issuer: 'NAVTTC' },
+  { name: 'CCNA', issuer: 'Cisco' },
+  { name: 'CyberOps Associate', issuer: 'Cisco' },
+]
+
+export const focusAreas = ['Penetration testing', 'SIEM & SOC', 'Digital forensics', 'Network security', 'Full-stack development']
+
+export const processSteps = [
+  { title: 'Scope', text: 'Agree on targets, rules of engagement, and what a good outcome looks like.' },
+  { title: 'Recon', text: 'Map the attack surface: hosts, services, exposed assets, and entry points.' },
+  { title: 'Exploit', text: 'Validate real weaknesses safely, with proof instead of theory.' },
+  { title: 'Analyze', text: 'Trace what happened and what it could reach, using logs and a SIEM.' },
+  { title: 'Report', text: 'Deliver findings ranked by risk, with fixes your team can act on.' },
+]
+
+// Illustrative log lines for the "noise" side of the comparison slider.
+const ips = ['185.220.101.4', '45.155.205.233', '193.32.162.71', '103.145.12.9', '91.240.118.50', '222.186.30.14']
+const users = ['root', 'admin', 'ubuntu', 'test', 'oracle', 'postgres', 'git', 'pi']
+
+export const rawLogs: { text: string; hot: boolean }[] = Array.from({ length: 36 }, (_, i) => {
+  const seconds = i * 17
+  const time = `03:${String(12 + Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`
+  const ip = ips[i % ips.length]
+  const user = users[(i * 3) % users.length]
+  const pid = 2200 + i * 3
+  const port = 40000 + i * 137
+  const head = `Nov 10 ${time} srv-02`
+  switch (i % 5) {
+    case 0: return { text: `${head} sshd[${pid}]: Failed password for ${user} from ${ip} port ${port} ssh2`, hot: true }
+    case 1: return { text: `${head} sshd[${pid}]: Invalid user ${user} from ${ip} port ${port}`, hot: false }
+    case 2: return { text: `${head} kernel: [UFW AUDIT] IN=eth0 SRC=${ip} DST=10.0.4.12 PROTO=TCP DPT=22`, hot: false }
+    case 3: return { text: `${head} sshd[${pid}]: Connection closed by authenticating user ${user} ${ip} port ${port} [preauth]`, hot: false }
+    default: return { text: `${head} CRON[${pid}]: pam_unix(cron:session): session opened for user root`, hot: false }
+  }
+})
+
+export const attemptBars = [8, 10, 14, 22, 38, 64, 92, 100, 88, 40, 12, 6]
