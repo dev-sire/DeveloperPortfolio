@@ -5,6 +5,7 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowUpRight, Search } from 'lucide-react'
+import { ProjectShot } from '@/components/project-shot'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { EMAIL, allProjects, type Project } from '@/lib/content'
@@ -18,7 +19,7 @@ function Card({ project, number }: { project: Project; number: number }) {
   const body = (
     <>
       <div className="card-shot">
-        <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+        <ProjectShot project={project} />
         <span className="card-tag">{project.kind}</span>
       </div>
       <div className="card-meta">

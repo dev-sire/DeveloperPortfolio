@@ -1,6 +1,13 @@
 // All editable portfolio content lives here.
 
 export const EMAIL = 'shahidamaan2019@gmail.com'
+export const SITE_URL = 'https://devsire.me'
+export const SITE_NAME = 'DevSire'
+export const SOCIALS = [
+  'https://github.com/dev-sire',
+  'https://www.linkedin.com/in/aman-shahid-32708a2b7/',
+  'https://www.instagram.com/devsirecodes/',
+]
 
 export type Project = {
   slug: string
@@ -14,11 +21,37 @@ export type Project = {
   tone: string
   featured: boolean
   // Screenshot shown in the project panel and on the projects page.
-  // Replace the file in /public/projects (1600x1000 works best), or change this path.
-  image: string
+  // Drop the file in /public/projects (1600x1000 works best) and set this path.
+  // Leave it out and a neutral "screenshot coming soon" frame is shown instead.
+  image?: string
 }
 
 export const allProjects: Project[] = [
+  {
+    slug: 'spyrasoc',
+    title: 'SpyraSoC',
+    kind: 'Security',
+    category: 'Security Operations Platform',
+    year: '2026',
+    description: 'Security operations platform built at the startup where I am CTO and lead developer. Private codebase.',
+    tools: [],
+    tone: 'project-blue',
+    featured: false,
+    // image: '/projects/spyrasoc.png',
+  },
+  {
+    slug: 'sirereverse',
+    title: 'SireReverse',
+    kind: 'Security',
+    category: 'Reverse Engineering',
+    year: '2026',
+    description: 'Reverse engineering tool built to take compiled software apart and make sense of what is inside.',
+    tools: [],
+    // source: 'https://github.com/dev-sire/...',
+    tone: 'project-violet',
+    featured: false,
+    // image: '/projects/sirereverse.png',
+  },
   {
     slug: 'dfir-companion',
     title: 'DFIR Companion',
@@ -72,28 +105,30 @@ export const allProjects: Project[] = [
     image: '/projects/pingpanda.png',
   },
   {
-    slug: 'redmind-ai',
-    title: 'RedMind-AI',
-    kind: 'Security',
-    category: 'Cybersecurity & Penetration Testing',
+    slug: 'mindforge',
+    title: 'MindForge',
+    kind: 'Web app',
+    category: 'Full-Stack Web App',
     year: '2026',
-    description: 'Autonomous vulnerability assessment and penetration testing console.',
+    description: 'A Notion-style workspace for writing, organizing, and connecting notes and documents.',
     tools: [],
-    tone: 'project-red',
+    // source: 'https://github.com/dev-sire/...',
+    tone: 'project-sand',
     featured: false,
-    image: '/projects/redmind-ai.png',
+    // image: '/projects/mindforge.png',
   },
   {
-    slug: 'vs-soc',
-    title: 'VS-SOC',
-    kind: 'Security',
-    category: 'Security Operations',
+    slug: 'visage',
+    title: 'Visage',
+    kind: 'Web app',
+    category: 'Full-Stack Social App',
     year: '2026',
-    description: 'Multi-tenant security operations dashboard with role-based access, built on self-hosted Wazuh.',
-    tools: ['Wazuh'],
-    tone: 'project-blue',
+    description: 'A social media app for sharing moments and connecting with people.',
+    tools: [],
+    // source: 'https://github.com/dev-sire/...',
+    tone: 'project-red',
     featured: false,
-    image: '/projects/vs-soc.png',
+    // image: '/projects/visage.png',
   },
 ]
 

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowUpRight, MoveUpRight } from 'lucide-react'
+import { ProjectShot } from '@/components/project-shot'
 import { SignalCompare } from '@/components/signal-compare'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -149,7 +150,7 @@ export function Portfolio() {
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="eyebrow">Cybersecurity engineer &amp; full-stack developer</p>
-              <h1 aria-label="Building resilient systems">
+              <h1>
                 <Line>BUILDING</Line>
                 <Line className="accent">RESILIENT</Line>
                 <Line>SYSTEMS<span className="red-dot large" /></Line>
@@ -157,9 +158,9 @@ export function Portfolio() {
               <p className="hero-intro">I architect secure networks, automate digital forensics, and build high-performance web applications for a safer, more connected world.</p>
               <div className="hero-links"><a className="button-primary" href="#work">View selected work <MoveUpRight size={16} /></a><a className="text-link" href="#about">More about me <span>↘</span></a></div>
             </div>
-            <div className="hero-art" role="img" aria-label="Portrait of Aman Shahid">
+            <div className="hero-art">
               <div className="hero-shape shape-two" />
-              <img className="hero-photo" src="/aman.jpeg" alt="" />
+              <img className="hero-photo" src="/aman.jpeg" alt="Aman Shahid, cybersecurity engineer and full-stack developer based in Karachi" width={720} height={744} fetchPriority="high" />
               <div className="hero-art-label">SECURITY<br />/ SYSTEMS<br />/ IMPACT</div>
             </div>
           </div>
@@ -182,7 +183,7 @@ export function Portfolio() {
         <section className="about-section section-wrap" id="experience">
           <div className="about-top">
             <p className="section-index">02 / EXPERIENCE</p>
-            <h2 className="display-2" data-lines><Line>From packets</Line><Line>to <span className="accent">pixels.</span></Line></h2>
+            <h2 className="display-3" data-lines><Line>From packets</Line><Line>to <span className="accent">pixels.</span></Line></h2>
             <p className="about-copy" data-reveal>Bachelor of Science in Cybersecurity student at DUET and Cisco Networking Academy Program Lead at NanoTechX. I work at the intersection of infrastructure, investigation, and software.</p>
           </div>
           <div className="timeline">
@@ -216,7 +217,7 @@ export function Portfolio() {
                 <div className={`panel-art ${project.tone}`}>
                   <div className="app-frame">
                     <div className="app-bar" aria-hidden="true"><i /><i /><i /></div>
-                    <div className="app-shot"><img src={project.image} alt={`${project.title} screenshot`} loading="lazy" /></div>
+                    <div className="app-shot"><ProjectShot project={project} /></div>
                   </div>
                   {project.source && <a className="project-open" href={project.source} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} source`}><ArrowUpRight size={22} /></a>}
                 </div>
@@ -274,7 +275,7 @@ export function Portfolio() {
           <div className="craft">
             <div className="craft-head">
               <p className="section-index">Behind the craft</p>
-              <h2 className="display-2 craft-title" data-lines><Line>Tools find bugs.</Line><Line className="accent">Method finds risk.</Line></h2>
+              <h2 className="display-3 craft-title" data-lines><Line>Tools find bugs.</Line><Line className="accent">Method finds risk.</Line></h2>
               <p className="about-copy" data-reveal>I&apos;m Aman, a cybersecurity student and instructor in Karachi. I test systems the way an attacker would, monitor them the way a SOC does, and build the software that fixes what I find.</p>
             </div>
             <div className="craft-grid">
