@@ -160,7 +160,7 @@ export function Portfolio() {
             </div>
             <div className="hero-art">
               <div className="hero-shape shape-two" />
-              <img className="hero-photo" src="/aman.jpeg" alt="Aman Shahid, cybersecurity engineer and full-stack developer based in Karachi" width={720} height={744} fetchPriority="high" />
+              <img className="hero-photo" src="/aman-2.png" alt="Aman Shahid, cybersecurity engineer and full-stack developer based in Karachi" width={720} height={744} fetchPriority="high" />
               <div className="hero-art-label">SECURITY<br />/ SYSTEMS<br />/ IMPACT</div>
             </div>
           </div>
@@ -300,7 +300,7 @@ export function Portfolio() {
               <div className="quote-card" data-reveal>
                 <span className="quote-mark" aria-hidden="true">“</span>
                 <blockquote>Think like the attacker. <span className="soft">Build like the defender.</span></blockquote>
-                <div className="signature">Aman</div>
+                <div className="signature">Aman Shahid</div>
                 <a className="quote-cta" href="#contact">Let&apos;s build something secure <ArrowUpRight size={16} /></a>
               </div>
             </div>

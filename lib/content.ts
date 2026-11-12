@@ -28,33 +28,8 @@ export type Project = {
 
 export const allProjects: Project[] = [
   {
-    slug: 'spyrasoc',
-    title: 'SpyraSoC',
-    kind: 'Security',
-    category: 'Security Operations Platform',
-    year: '2026',
-    description: 'Security operations platform built at the startup where I am CTO and lead developer. Private codebase.',
-    tools: [],
-    tone: 'project-blue',
-    featured: false,
-    // image: '/projects/spyrasoc.png',
-  },
-  {
-    slug: 'sirereverse',
-    title: 'SireReverse',
-    kind: 'Security',
-    category: 'Reverse Engineering',
-    year: '2026',
-    description: 'Reverse engineering tool built to take compiled software apart and make sense of what is inside.',
-    tools: [],
-    // source: 'https://github.com/dev-sire/...',
-    tone: 'project-violet',
-    featured: false,
-    // image: '/projects/sirereverse.png',
-  },
-  {
     slug: 'dfir-companion',
-    title: 'DFIR Companion',
+    title: 'Chronos',
     kind: 'Security',
     category: 'Cybersecurity & Digital Forensics',
     year: '2026',
@@ -64,6 +39,32 @@ export const allProjects: Project[] = [
     tone: 'project-red',
     featured: true,
     image: '/projects/dfir-companion.png',
+  },
+  {
+    slug: 'ascendia',
+    title: 'Ascendia',
+    kind: 'Web app',
+    category: 'Full-Stack Web App',
+    year: '2026',
+    description: 'AI-enhanced learning management system designed for modern education.',
+    tools: ['Next.js', 'Prisma', 'Tailwind'],
+    source: 'https://github.com/dev-sire/Ascendia',
+    tone: 'project-sand',
+    featured: true,
+    image: '/projects/ascendia.png',
+  },
+  {
+    slug: 'sirereverse',
+    title: 'SireReverse',
+    kind: 'Security',
+    category: 'Reverse Engineering',
+    year: '2026',
+    description: 'Reverse engineering tool built to take compiled software apart and make sense of what is inside.',
+    tools: [],
+    source: 'https://github.com/dev-sire/SireReverse',
+    tone: 'project-violet',
+    featured: false,
+    image: '/projects/sirereverse.png',
   },
   {
     slug: 'nodestream',
@@ -77,19 +78,6 @@ export const allProjects: Project[] = [
     tone: 'project-blue',
     featured: true,
     image: '/projects/nodestream.png',
-  },
-  {
-    slug: 'ascendia',
-    title: 'Ascendia',
-    kind: 'Web app',
-    category: 'Full-Stack Web App',
-    year: '2026',
-    description: 'AI-enhanced learning management system designed for modern education.',
-    tools: ['Next.js', 'Prisma', 'Tailwind'],
-    source: 'https://github.com/dev-sire',
-    tone: 'project-sand',
-    featured: true,
-    image: '/projects/ascendia.png',
   },
   {
     slug: 'pingpanda',
@@ -112,10 +100,22 @@ export const allProjects: Project[] = [
     year: '2026',
     description: 'A Notion-style workspace for writing, organizing, and connecting notes and documents.',
     tools: [],
-    // source: 'https://github.com/dev-sire/...',
+    source: 'https://github.com/dev-sire/MindForge',
     tone: 'project-sand',
     featured: false,
-    // image: '/projects/mindforge.png',
+    image: '/projects/mindforge.png',
+  },
+  {
+    slug: 'spyrasoc',
+    title: 'SpyraSOC',
+    kind: 'Security',
+    category: 'Security Operations Platform',
+    year: '2026',
+    description: 'Security operations platform built at the startup where I am CTO and lead developer. Private codebase.',
+    tools: [],
+    tone: 'project-blue',
+    featured: false,
+    image: '/projects/spyrasoc.png',
   },
   {
     slug: 'visage',
@@ -124,24 +124,45 @@ export const allProjects: Project[] = [
     category: 'Full-Stack Social App',
     year: '2026',
     description: 'A social media app for sharing moments and connecting with people.',
-    tools: [],
-    // source: 'https://github.com/dev-sire/...',
+    tools: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    source: 'https://github.com/dev-sire/Visage',
     tone: 'project-red',
     featured: false,
-    // image: '/projects/visage.png',
+    image: '/projects/visage.png',
   },
 ]
 
 export const featuredProjects = allProjects.filter((project) => project.featured)
 
 export const toolGroups = [
-  { label: 'Offensive security', items: ['Kali Linux', 'Nmap', 'Burp Suite', 'Metasploit', 'Apktool'] },
-  { label: 'Defense & forensics', items: ['Wazuh', 'Velociraptor', 'Wireshark'] },
-  { label: 'Networking & systems', items: ['Cisco IOS', 'Packet Tracer', 'Linux', 'Bash'] },
-  { label: 'Build', items: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Prisma', 'MySQL', 'Python', 'Docker'] },
-]
+  {
+    label: 'Offensive & reversing',
+    items: ['Ghidra', 'Burp Suite', 'Metasploit', 'Apktool', 'Nmap'],
+  },
+  {
+    label: 'Defense & forensics',
+    items: ['Wazuh', 'Splunk', 'Security Onion'],
+  },
+  {
+    label: 'Networking & systems',
+    items: ['Cisco IOS-XE', 'BGP / OSPF', 'Linux', 'Bash'],
+  },
+  {
+    label: 'Build',
+    items: ['Next.js', 'React', 'TypeScript', 'Bun', 'Tailwind CSS', 'PostgreSQL', 'MySQL', 'Python', 'Docker'],
+  },
+];
 
-export const marqueeWords = ['Nmap', 'Wazuh', 'Burp Suite', 'Wireshark', 'Metasploit', 'Next.js', 'Kali Linux', 'Velociraptor']
+export const marqueeWords = [
+  'Splunk',
+  'Wazuh',
+  'Security Onion',
+  'Ghidra',
+  'Burp Suite',
+  'Cisco IOS-XE',
+  'Next.js',
+  'Docker',
+];
 
 export const certifications = [
   { name: 'CCNP Instructor Trainings', issuer: 'Cisco' },
