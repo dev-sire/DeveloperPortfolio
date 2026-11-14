@@ -1,0 +1,61 @@
+/* Hero extras: headline stagger, photo HUD, terminal card, cursor reticle. Imported by components/hero.tsx. */
+
+/* Photo + terminal sit in one stage so the terminal can break out of the photo frame */
+.hero .hero-stage{position:relative;width:100%}
+
+/* HUD over the photo */
+.hero .hud{position:absolute;inset:0;z-index:2;pointer-events:none;font-size:9px;letter-spacing:1.4px;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.65)}
+.hero .hud .bk{position:absolute;width:20px;height:20px;border:0 solid rgba(242,239,235,.85)}
+.hero .hud .tl{top:12px;left:12px;border-top-width:1px;border-left-width:1px}
+.hero .hud .tr{top:12px;right:12px;border-top-width:1px;border-right-width:1px}
+.hero .hud .bl{bottom:12px;left:12px;border-bottom-width:1px;border-left-width:1px}
+.hero .hud .br{bottom:12px;right:12px;border-bottom-width:1px;border-right-width:1px}
+.hero .hud-id{position:absolute;top:25px;left:25px}
+.hero .hud-id:before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:1px}
+.hero .hud-geo{position:absolute;right:25px;bottom:24px;color:rgba(242,239,235,.85)}
+.hero .scan{position:absolute;left:0;right:0;top:0;height:28%;background:linear-gradient(to bottom,transparent,rgba(227,43,60,.18));border-bottom:1px solid rgba(227,43,60,.85);transform:translateY(-100%);animation:heroScan 6.5s cubic-bezier(.45,0,.25,1) 2.2s infinite}
+@keyframes heroScan{0%{transform:translateY(-100%);opacity:1}55%{transform:translateY(257%);opacity:1}56%,100%{transform:translateY(257%);opacity:0}}
+
+/* Stats strip. Space for it is taken out of the headline and photo heights so the hero still fits one screen. */
+.hero .hero-stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-bottom:clamp(12px,2.4vh,26px)}
+.hero .hero-stats li+li{border-left:1px solid var(--line)}
+.hero .hero-stats a,.hero .hero-stats div{display:flex;align-items:baseline;gap:16px;padding:clamp(10px,1.8vh,18px) 0 0 24px;height:100%}
+.hero .hero-stats li:first-child a,.hero .hero-stats li:first-child div{padding-left:0}
+.hero .hero-stats strong{font-family:var(--display);font-weight:400;font-size:clamp(32px,5.2svh,50px);line-height:1;letter-spacing:-.5px;white-space:nowrap}
+.hero .hero-stats strong span{color:var(--red)}
+.hero .hero-stats small{font-size:9px;line-height:1.5;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted);max-width:170px}
+.hero .hero-stats em{font-style:normal;color:var(--red)}
+.hero .hero-stats a{transition:background .25s}
+.hero .hero-stats a:hover small{color:var(--ink)}
+.motion-on .hero .hero-stats{animation:heroRise .8s cubic-bezier(.2,.7,.2,1) 1.5s both}
+@media (min-width:801px){
+  .hero h1{font-size:clamp(52px,min(10.6vw,calc((100svh - 520px) / 2.6)),174px)}
+  .hero .hero-art{height:clamp(280px,calc(100svh - 380px),620px)}
+}
+
+/* Terminal card */
+.hero .hero-term{position:absolute;z-index:3;left:clamp(-120px,-6.5vw,-40px);bottom:clamp(22px,6%,56px);width:clamp(250px,21vw,300px);background:rgba(12,11,10,.92);border:1px solid var(--line);border-left:2px solid var(--red);font:11px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;box-shadow:0 24px 60px rgba(0,0,0,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.hero .term-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid var(--line);color:var(--muted);font-size:9px;letter-spacing:1px}
+.hero .term-bar i{width:6px;height:6px;border-radius:50%;background:#3a3836}
+.hero .term-bar i:first-child{background:var(--red)}
+.hero .term-bar span{margin-left:auto}
+.hero .term-body{height:calc(1.65em * 6 + 20px);padding:10px 12px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero .term-line{white-space:nowrap;overflow:hidden}
+.hero .term-line.cmd:before{content:'$ ';color:var(--red)}
+.hero .term-line.out{color:var(--muted)}
+.hero .caret{display:inline-block;width:.55em;height:1.05em;margin-left:2px;vertical-align:-2px;background:var(--ink);animation:heroBlink 1s steps(1) infinite}
+@keyframes heroBlink{50%{opacity:0}}
+.motion-on .hero .hero-term{animation:heroRise .9s cubic-bezier(.2,.7,.2,1) 1.9s both}
+@keyframes heroRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* Decorative motion off: toggle in the header or OS setting */
+.site-shell:not(.motion-on) .hero .scan{display:none}
+@media (prefers-reduced-motion:reduce){.hero .scan{display:none}.hero .caret,.hero .hero-term{animation:none}}
+
+@media (max-width:800px){
+  .hero .hero-stats{margin-top:34px}
+  .hero .hero-stats a,.hero .hero-stats div{flex-direction:column;gap:8px;padding-left:12px}
+  .hero .hero-stats strong{font-size:34px}
+  .hero .hero-stats small{font-size:8px;letter-spacing:1px}
+  .hero .hero-term{position:relative;left:auto;bottom:auto;width:100%;margin-top:14px}
+}

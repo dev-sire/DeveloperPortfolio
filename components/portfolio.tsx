@@ -11,6 +11,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { EMAIL, allProjects, certifications, featuredProjects, focusAreas, marqueeWords, processSteps, toolGroups } from '@/lib/content'
 import { useSmoothScroll } from '@/lib/use-smooth-scroll'
+import { Hero } from './hero'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -144,7 +145,7 @@ export function Portfolio() {
       <div className="progress" aria-hidden="true" />
       <SiteHeader page="home" motion={motion} onToggleMotion={() => setMotion(!motion)} />
 
-      <section className="hero" id="top">
+      {/* <section className="hero" id="top">
         <div className="hero-inner">
           <div className="hero-kicker"><span className="red-dot" /> Karachi, Pakistan <span className="slash">/</span> Open to collaborations</div>
           <div className="hero-grid">
@@ -166,7 +167,9 @@ export function Portfolio() {
           </div>
           <div className="hero-bottom"><span>Scroll to explore</span><span className="scroll-line" /><span>Portfolio 2026</span></div>
         </div>
-      </section>
+      </section> */}
+
+      <Hero motion={motion} />
 
       <div id="about">
         <section className="statement-section"><div className="section-wrap statement-inner">
