@@ -1,6 +1,7 @@
 // All editable portfolio content lives here.
 
-export const EMAIL = 'shahidamaan2019@gmail.com'
+export const EMAIL = 'aman.shahid@devsire.me'
+export const PROJECTS_EMAIL = 'projects@devsire.me'
 export const SITE_URL = 'https://devsire.me'
 export const SITE_NAME = 'DevSire'
 export const SOCIALS = [

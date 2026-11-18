@@ -6,9 +6,10 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowUpRight, Search } from 'lucide-react'
 import { ProjectShot } from '@/components/project-shot'
+import { ProjectVideos } from '@/components/project-videos'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
-import { EMAIL, allProjects, type Project } from '@/lib/content'
+import { PROJECTS_EMAIL, allProjects, type Project } from '@/lib/content'
 import { useSmoothScroll } from '@/lib/use-smooth-scroll'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -124,9 +125,11 @@ export function ProjectsPage() {
         )}
       </section>
 
+      <ProjectVideos />
+
       <section className="cta-band">
-        <h2 className="display-2"><span className="mask"><span>Have a challenge</span></span><span className="mask"><span>worth solving?</span></span></h2>
-        <a href={`mailto:${EMAIL}`} className="email-link">{EMAIL} <ArrowUpRight size={24} /></a>
+        <h2 className="display-2"><span className="mask"><span>Have a project</span></span><span className="mask"><span>worth discussing?</span></span></h2>
+        <a href={`mailto:${PROJECTS_EMAIL}`} className="email-link">{PROJECTS_EMAIL} <ArrowUpRight size={24} /></a>
       </section>
       <SiteFooter />
     </main>
