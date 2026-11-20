@@ -1,0 +1,34 @@
+/* Header navigation: home-page section anchors vs. separate-page pills. Imported by components/site-header.tsx. */
+.site-header .main-nav{gap:0;align-items:center}
+.main-nav .nav-group{display:flex;align-items:center;gap:35px}
+.main-nav .nav-pages{gap:10px}
+.main-nav .nav-sep{flex:none;width:1px;height:18px;margin:0 30px;background:var(--line)}
+.main-nav .nav-label{display:none}
+
+.main-nav .page-link{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid rgba(242,239,235,.24);border-radius:999px;color:var(--ink);transition:background .25s,border-color .25s,color .25s}
+.main-nav .page-link:after{display:none}
+.main-nav .page-link:hover{border-color:var(--red);background:rgba(227,43,60,.12)}
+.main-nav .page-link.is-active{background:var(--red);border-color:var(--red);color:#fff}
+.main-nav .page-link svg{transition:transform .25s}
+.main-nav .page-link:hover svg{transform:translateX(3px)}
+.nav-live{width:6px;height:6px;border-radius:50%;background:var(--red);animation:navPulse 1.8s ease-out infinite}
+.main-nav .page-link.is-active .nav-live{background:#fff;animation:none}
+@keyframes navPulse{0%{box-shadow:0 0 0 0 rgba(227,43,60,.75)}70%{box-shadow:0 0 0 8px rgba(227,43,60,0)}100%{box-shadow:0 0 0 0 rgba(227,43,60,0)}}
+@media (prefers-reduced-motion:reduce){.nav-live{animation:none}}
+
+@media (max-width:1100px){.main-nav .nav-group{gap:20px}.main-nav .nav-pages{gap:8px}.main-nav .nav-sep{margin:0 20px}}
+@media (max-width:1000px) and (min-width:801px){.header-contact{display:none}.main-nav .page-link{padding:7px 10px}}
+
+@media (max-width:800px){
+  .main-nav .nav-group{display:contents}
+  .main-nav .nav-sep{display:none}
+  .main-nav .nav-label{display:block;padding:14px 0 2px;font-size:9px;letter-spacing:1.6px;color:#6f6b66}
+  .main-nav .page-link{justify-content:space-between;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:16px 0;background:none}
+  .main-nav .page-link:hover{background:none}
+  .main-nav .page-link.is-active{background:none;color:var(--red)}
+  .main-nav .page-link.is-active .nav-live{background:var(--red)}
+}
+
+/* Footer page links */
+.footer-links{display:flex;gap:26px}
+@media (max-width:800px){.footer-links{order:3}}

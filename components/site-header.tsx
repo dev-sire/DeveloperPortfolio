@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Menu, X } from 'lucide-react'
 import { EMAIL } from '@/lib/content'
+import './site-header.css'
 
+// Anchors that scroll the home page.
 const sections = [
   { label: 'About', id: 'about' },
   { label: 'Work', id: 'work' },
@@ -13,17 +15,23 @@ const sections = [
   { label: 'Contact', id: 'contact' },
 ]
 
+// Separate pages. Styled as pills so they read differently from the section anchors.
+const pages = [
+  { label: 'Projects', id: 'projects', href: '/projects', hint: 'Open the projects page' },
+  { label: 'Initiatives', id: 'initiatives', href: '/initiatives', hint: 'Open the initiatives and awards page', live: true },
+] as const
+
 type Props = {
   motion: boolean
   onToggleMotion: () => void
-  // 'home' tracks which section is on screen; 'projects' highlights the Projects link.
-  page: 'home' | 'projects'
+  // 'home' tracks which section is on screen; the other pages highlight their own link.
+  page: 'home' | 'projects' | 'initiatives'
 }
 
 export function SiteHeader({ motion, onToggleMotion, page }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [active, setActive] = useState(page === 'projects' ? 'projects' : '')
+  const [active, setActive] = useState(page === 'home' ? '' : page)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -54,10 +62,30 @@ export function SiteHeader({ motion, onToggleMotion, page }: Props) {
         ? <a className="wordmark" href="#top" aria-label="DevSire home"><span>DS</span><i>.</i></a>
         : <Link className="wordmark" href="/" aria-label="DevSire home"><span>DS</span><i>.</i></Link>}
       <nav className={menuOpen ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation">
-        {sections.map((item) => page === 'home'
-          ? <a key={item.id} href={`#${item.id}`} className={active === item.id ? 'is-active' : ''} onClick={close}>{item.label}</a>
-          : <Link key={item.id} href={`/#${item.id}`} onClick={close}>{item.label}</Link>)}
-        <Link href="/projects" className={active === 'projects' ? 'is-active' : ''} onClick={close}>Projects</Link>
+        <span className="nav-label">{page === 'home' ? 'On this page' : 'Home page sections'}</span>
+        <div className="nav-group">
+          {sections.map((item) => page === 'home'
+            ? <a key={item.id} href={`#${item.id}`} className={active === item.id ? 'is-active' : ''} onClick={close}>{item.label}</a>
+            : <Link key={item.id} href={`/#${item.id}`} onClick={close}>{item.label}</Link>)}
+        </div>
+        <span className="nav-sep" aria-hidden="true" />
+        <span className="nav-label">Pages</span>
+        <div className="nav-group nav-pages">
+          {pages.map((item) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              title={item.hint}
+              className={active === item.id ? 'page-link is-active' : 'page-link'}
+              aria-current={page === item.id ? 'page' : undefined}
+              onClick={close}
+            >
+              {item.label}
+              {'live' in item && item.live && <i className="nav-live" aria-hidden="true" />}
+              <ArrowRight size={12} aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
       </nav>
       <div className="header-actions">
         <button className="motion-toggle" type="button" onClick={onToggleMotion} aria-pressed={motion}><span className={motion ? 'toggle-dot active' : 'toggle-dot'} /> Motion</button>

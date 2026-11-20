@@ -1,7 +1,8 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { ArrowUpRight, Play } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
+import VideoPlayer from '@/components/ui/video-player'
 import { allProjects } from '@/lib/content'
 import { projectVideos, type ProjectVideo } from '@/lib/videos'
 import './project-videos.css'
@@ -16,9 +17,8 @@ function Thumb({ video }: { video: ProjectVideo }) {
 
 export function ProjectVideos() {
   const [index, setIndex] = useState(0)
-  const [started, setStarted] = useState(false)
+  const [autoplay, setAutoplay] = useState(false)
   const [missing, setMissing] = useState<string[]>([])
-  const player = useRef<HTMLVideoElement>(null)
 
   if (projectVideos.length === 0) return null
 
@@ -26,15 +26,11 @@ export function ProjectVideos() {
   const project = allProjects.find((item) => item.slug === video.project)
   const unavailable = missing.includes(video.src)
 
-  const play = () => {
-    setStarted(true)
-    player.current?.play().catch(() => {})
-  }
   // Picking another film from the playlist starts it straight away.
   const select = (next: number) => {
     if (next === index) return
     setIndex(next)
-    setStarted(true)
+    setAutoplay(true)
   }
 
   return (
@@ -56,27 +52,14 @@ export function ProjectVideos() {
                 <small>Film coming soon</small>
               </div>
             ) : (
-              <>
-                <video
-                  key={video.src}
-                  ref={player}
-                  src={`${video.src}#t=0.1`}
-                  poster={video.poster}
-                  preload="metadata"
-                  playsInline
-                  controls={started}
-                  autoPlay={started}
-                  aria-label={`${video.title} motion graphics film`}
-                  onError={() => setMissing((list) => [...list, video.src])}
-                  onEnded={(event) => { event.currentTarget.currentTime = 0; setStarted(false) }}
-                />
-                {!started && (
-                  <button type="button" className="vid-cover" onClick={play} aria-label={`Play the ${video.title} film`}>
-                    <span className="vid-tag">Motion{video.duration ? ` / ${video.duration}` : ''}</span>
-                    <span className="vid-play"><Play size={28} fill="currentColor" aria-hidden="true" /></span>
-                  </button>
-                )}
-              </>
+              <VideoPlayer
+                key={video.src}
+                src={`${video.src}#t=0.1`}
+                poster={video.poster}
+                autoPlay={autoplay}
+                className="h-full"
+                onError={() => setMissing((list) => [...list, video.src])}
+              />
             )}
           </div>
           <div className="vid-info">
