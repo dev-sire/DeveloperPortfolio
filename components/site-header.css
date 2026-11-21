@@ -32,3 +32,13 @@
 /* Footer page links */
 .footer-links{display:flex;gap:26px}
 @media (max-width:800px){.footer-links{order:3}}
+
+/* Brighter, bolder nav text so it stands out against the dark header */
+.main-nav .nav-group:not(.nav-pages) a{color:#d9d4ce;font-size:11px;font-weight:700;letter-spacing:1.7px;transition:color .2s,text-shadow .2s}
+.main-nav .nav-group:not(.nav-pages) a:hover,.main-nav .nav-group:not(.nav-pages) a.is-active{color:#fff;text-shadow:0 0 18px rgba(242,239,235,.4)}
+.main-nav .nav-group:not(.nav-pages) a:after{height:2px}
+.main-nav .nav-group:not(.nav-pages) a:hover:after{transform:scaleX(1)}
+.main-nav .page-link{font-size:11px;font-weight:700;letter-spacing:1.6px}
+@media (max-width:1000px) and (min-width:801px){
+  .main-nav .nav-group:not(.nav-pages) a,.main-nav .page-link{font-size:10.5px;letter-spacing:1.3px}
+}

@@ -36,7 +36,6 @@ export const allProjects: Project[] = [
     year: '2026',
     description: 'Automated digital forensics and incident response platform for streamlined investigations.',
     tools: ['Python', 'Velociraptor', 'Docker'],
-    source: 'https://github.com/hasamba/DFIR-Companion',
     tone: 'project-red',
     featured: true,
     image: '/projects/dfir-companion.png',

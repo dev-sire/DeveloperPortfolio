@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, Menu, X } from 'lucide-react'
+import { RandomLetterSwap } from '@/components/ui/random-letter-swap'
 import { EMAIL } from '@/lib/content'
 import './site-header.css'
 
@@ -65,8 +66,8 @@ export function SiteHeader({ motion, onToggleMotion, page }: Props) {
         <span className="nav-label">{page === 'home' ? 'On this page' : 'Home page sections'}</span>
         <div className="nav-group">
           {sections.map((item) => page === 'home'
-            ? <a key={item.id} href={`#${item.id}`} className={active === item.id ? 'is-active' : ''} onClick={close}>{item.label}</a>
-            : <Link key={item.id} href={`/#${item.id}`} onClick={close}>{item.label}</Link>)}
+            ? <a key={item.id} href={`#${item.id}`} className={active === item.id ? 'is-active' : ''} onClick={close}><RandomLetterSwap label={item.label} trigger="parent" disabled={!motion} /></a>
+            : <Link key={item.id} href={`/#${item.id}`} onClick={close}><RandomLetterSwap label={item.label} trigger="parent" disabled={!motion} /></Link>)}
         </div>
         <span className="nav-sep" aria-hidden="true" />
         <span className="nav-label">Pages</span>
@@ -80,7 +81,7 @@ export function SiteHeader({ motion, onToggleMotion, page }: Props) {
               aria-current={page === item.id ? 'page' : undefined}
               onClick={close}
             >
-              {item.label}
+              <RandomLetterSwap label={item.label} trigger="parent" disabled={!motion} />
               {'live' in item && item.live && <i className="nav-live" aria-hidden="true" />}
               <ArrowRight size={12} aria-hidden="true" />
             </Link>
