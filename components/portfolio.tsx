@@ -12,6 +12,7 @@ import { SiteHeader } from '@/components/site-header'
 import { EMAIL, allProjects, certifications, featuredProjects, focusAreas, marqueeWords, processSteps, toolGroups } from '@/lib/content'
 import { useSmoothScroll } from '@/lib/use-smooth-scroll'
 import { Hero } from './hero'
+import { RandomLetterSwap } from '@/components/ui/random-letter-swap'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -319,10 +320,18 @@ export function Portfolio() {
           <div><span className="muted-label">Based in</span><p>Karachi, Pakistan</p></div>
           <div><span className="muted-label">Find me online</span>
             <div className="socials">
-              <a href="https://github.com/dev-sire" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://www.linkedin.com/in/aman-shahid-32708a2b7/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://www.instagram.com/devsirecodes/" target="_blank" rel="noreferrer">Instagram</a>
-              <a href={`mailto:${EMAIL}`}>Email</a>
+              <a href="https://github.com/dev-sire" target="_blank" rel="noreferrer">
+                <RandomLetterSwap label="GitHub" trigger="parent" />
+              </a>
+              <a href="https://www.linkedin.com/in/aman-shahid-32708a2b7/" target="_blank" rel="noreferrer">
+                <RandomLetterSwap label="LinkedIn" trigger="parent" />
+              </a>
+              <a href="https://www.instagram.com/devsirecodes/" target="_blank" rel="noreferrer">
+                <RandomLetterSwap label="Instagram" trigger="parent" />
+              </a>
+              <a href={`mailto:${EMAIL}`}>
+                <RandomLetterSwap label="Email" trigger="parent" />
+              </a>
             </div>
           </div>
         </div>

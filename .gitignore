@@ -16,6 +16,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+portfolio-release
+
 # env files
 .env*
 
